@@ -17,17 +17,12 @@ from watermark import watermark
 from datasets import load_from_disk
 from transformers import AutoTokenizer, RobertaForSequenceClassification, AutoConfig
 from transformers import get_linear_schedule_with_warmup
-# lightning imports
 import lightning as L
 from lightning.pytorch.callbacks import ModelCheckpoint, EarlyStopping
 from lightning.pytorch.loggers import WandbLogger
-# from lightning import Fabric
 import wandb
 
-# os.environ['SLURM_NTASKS_PER_NODE'] = '4'
-# Set the cache directory
 cache_dir = "./cache_dir"
-# Set the environment variable
 os.environ["TRANSFORMERS_CACHE"] = cache_dir
 
 os.environ["TOKENIZERS_PARALLELISM"] = 'false'
@@ -57,7 +52,6 @@ WARMUP_STEPS = 1000
 DEVICE = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
 MODEL_TYPE = 'roberta-base'
-# MODEL_TYPE = 'microsoft/deberta-v3-large'
 
 MODEL_CONFIG = AutoConfig.from_pretrained(MODEL_TYPE)
 MODEL_CONFIG.num_labels = 19
@@ -67,8 +61,6 @@ TOKENIZER.add_tokens([E1_START_TOKEN, E1_END_TOKEN, E2_START_TOKEN, E2_END_TOKEN
 
 MAX_LENGTH = 256 # TOKENIZER.model_max_length
 
-wandb_logger.experiment.config["model_type"] = BATCH_SIZE
-wandb_logger.experiment.config["batch_size"] = label_to_label_id
 wandb_logger.experiment.config["num_epochs"] = NUM_EPOCHS
 wandb_logger.experiment.config["max_length"] = MAX_LENGTH
 wandb_logger.experiment.config["warmup_steps"] = WARMUP_STEPS
@@ -76,19 +68,16 @@ wandb_logger.experiment.config["warmup_steps"] = WARMUP_STEPS
 def data_collator(batch, padding_token_id=TOKENIZER.pad_token_id):
     input_ids = [item["input_ids"][:MAX_LENGTH] for item in batch]
     attention_masks = [item["attention_mask"][:MAX_LENGTH] for item in batch]
-    # token_type_ids = [item['token_type_ids'] for item in batch]
     label = [item["label"] for item in batch]
    
     max_len = min(MAX_LENGTH, max(len(ids) for ids in input_ids))
     input_ids = torch.tensor([ids + [padding_token_id] * (max_len - len(ids)) for ids in input_ids])
     attention_masks = torch.tensor([masks + [padding_token_id] * (max_len - len(masks)) for masks in attention_masks])
-    # token_type_ids = torch.tensor([ids + [padding_token_id] * (max_len - len(ids)) for ids in token_type_ids])
     label = torch.tensor([i for i in label])
     
     return {
         "input_ids": input_ids, 
         "attention_mask": attention_masks, 
-        # "token_type_ids": token_type_ids,
         "labels": label,
     }
 
@@ -97,7 +86,6 @@ class LightningModel(L.LightningModule):
         super().__init__()
         
         self.learning_rate = learning_rate
-        # self.weight_decay = weight_decay
         self.model = model
         
         self.t_total = t_total
@@ -118,7 +106,6 @@ class LightningModel(L.LightningModule):
     def training_step(self, batch, batch_idx):
         # print(batch.keys())
         outputs = self(
-            # input_ids=batch['input_ids'], attention_mask=batch['attention_mask'], labels=batch['labels']
             **batch
         )
         self.log("train_loss", outputs["loss"], prog_bar=True)
@@ -133,7 +120,6 @@ class LightningModel(L.LightningModule):
     
     def validation_step(self, batch, batch_idx):
         outputs = self(
-            # input_ids=batch['input_ids'], attention_mask=batch['attention_mask'], labels=batch['labels']
             **batch
         )
         self.log("val_loss", outputs["loss"], prog_bar=True)
@@ -148,7 +134,6 @@ class LightningModel(L.LightningModule):
 
     def test_step(self, batch, batch_idx):
         outputs = self(
-            # input_ids=batch['input_ids'], attention_mask=batch['attention_mask'], labels=batch['labels']
             **batch
         )
         logits = outputs['logits']
@@ -198,7 +183,6 @@ tokenized_dataset = dataset.map(
     lambda examples: TOKENIZER(
         examples['text'],
         padding=True,
-        # padding='max_length',
         max_length=MAX_LENGTH,
     ), 
     batched=True
@@ -207,14 +191,20 @@ all_columns = tokenized_dataset['train'].column_names
 columns_to_keep = ['input_ids', "attention_mask", 'label']
 tokenized_dataset = tokenized_dataset.remove_columns([col for col in all_columns if col not in columns_to_keep])
 
+# Load selected indices from file
+with open("selected_indices.txt", "r") as f:
+    selected_indices = [int(line.strip()) for line in f.readlines()]
+subset_train_dataset = tokenized_dataset['train'].select(selected_indices)
+
 train_loader = DataLoader(
-    dataset=tokenized_dataset['train'],
+    dataset=subset_train_dataset,
     batch_size=BATCH_SIZE, 
     shuffle=True,
     num_workers=8,
     drop_last=True,
     collate_fn=data_collator
 )
+
 dev_loader = DataLoader(
     dataset=tokenized_dataset['validation'],
     batch_size=BATCH_SIZE, 
@@ -233,23 +223,18 @@ test_loader = DataLoader(
 )
 
 T_TOTAL = int(len(train_loader) * NUM_EPOCHS)
+wandb_logger.experiment.config["t_total"] = T_TOTAL
 
-#print(watermark(packages='torch,lightning,transformers', python=True))
 print("Torch CUDA Available?", torch.cuda.is_available())
-# device = "cuda:0" if torch.cuda.is_available() else "cpu"
-# device = 'cpu'
 torch.manual_seed(123)
 wandb_logger.experiment.config["t_total"] = T_TOTAL
 
-# initializing the model
 model = RobertaForSequenceClassification.from_pretrained(
     MODEL_TYPE, config=MODEL_CONFIG
 )
 model.resize_token_embeddings(len(TOKENIZER))
 print('model_loaded')
 
-
-# finetuning
 wandb_logger.experiment.config["vocab_size"] = len(TOKENIZER)
 
 LEARNING_RATE = 1e-5
@@ -271,11 +256,9 @@ callbacks = [
 trainer = L.Trainer(
     max_epochs=NUM_EPOCHS, callbacks=callbacks, 
     accelerator="gpu", 
-    devices=[0], #, 1, 2, 3, 4, 5, 6, 7], 
-    # strategy="ddp_find_unused_parameters_true", #"ddp",
-    # strategy='ddp',
+    devices=[0],
     accumulate_grad_batches=2,
-    precision="16-mixed",  # <-- NEW
+    precision="16-mixed",
     logger=wandb_logger, 
     log_every_n_steps=100, deterministic=True,
     gradient_clip_val=GRADIENT_CLIP_VALUE
@@ -286,19 +269,18 @@ trainer.fit(
     model=lightning_model,
     train_dataloaders=train_loader,
     val_dataloaders=dev_loader,
-    # ckpt_path='experiment_files/roberta_large_binary_classification_neg_samp_5_expt/version_1/checkpoints/epoch=8-step=5895.ckpt'
 )
 end = time.time()
 elapsed = end - start
 
-print("Time elapsed : {elapsed/60:.2f} min")
+print(f"Time elapsed : {elapsed/60:.2f} min")
 
 trainer.validate(lightning_model, dataloaders=dev_loader, ckpt_path="best")
 print(trainer.ckpt_path)
 
-test_f1 = trainer.test(lightning_model, dataloaders=test_loader) #, ckpt_path="best")
+test_f1 = trainer.test(lightning_model, dataloaders=test_loader)
 print(test_f1)
 
 with open(op.join(trainer.logger.log_dir, "test_outputs.text"), "w") as f:
-    f.write(("Time elapsed {elapsed/60:.2f} min\n"))
-    f.write("Test F1 : {test_f1}")
+    f.write(f"Time elapsed {elapsed/60:.2f} min\n")
+    f.write(f"Test F1 : {test_f1}")
