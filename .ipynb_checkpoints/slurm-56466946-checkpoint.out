@@ -1,0 +1,22 @@
+/mnt/home/berijani/.bashrc: line 26: /mnt/home/berijani/.cargo/env: No such file or directory
+Traceback (most recent call last):
+  File "/mnt/ffs24/home/berijani/langchain/classify_selected.py", line 14, in <module>
+    import torchmetrics
+  File "/mnt/home/berijani/.conda/envs/active_learning/lib/python3.12/site-packages/torchmetrics/__init__.py", line 30, in <module>
+    from torchmetrics import functional  # noqa: E402
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/home/berijani/.conda/envs/active_learning/lib/python3.12/site-packages/torchmetrics/functional/__init__.py", line 122, in <module>
+    from torchmetrics.functional.text._deprecated import _bleu_score as bleu_score
+  File "/mnt/home/berijani/.conda/envs/active_learning/lib/python3.12/site-packages/torchmetrics/functional/text/__init__.py", line 23, in <module>
+    from torchmetrics.functional.text.sacre_bleu import sacre_bleu_score
+  File "/mnt/home/berijani/.conda/envs/active_learning/lib/python3.12/site-packages/torchmetrics/functional/text/sacre_bleu.py", line 98, in <module>
+    class _SacreBLEUTokenizer:
+  File "/mnt/home/berijani/.conda/envs/active_learning/lib/python3.12/site-packages/torchmetrics/functional/text/sacre_bleu.py", line 120, in _SacreBLEUTokenizer
+    import regex
+  File "/opt/software-current/2023.06/x86_64/intel/haswell/software/Python-bundle-PyPI/2023.06-GCCcore-12.3.0/lib/python3.11/site-packages/regex/__init__.py", line 1, in <module>
+    from .regex import *
+  File "/opt/software-current/2023.06/x86_64/intel/haswell/software/Python-bundle-PyPI/2023.06-GCCcore-12.3.0/lib/python3.11/site-packages/regex/regex.py", line 421, in <module>
+    import regex._regex_core as _regex_core
+  File "/opt/software-current/2023.06/x86_64/intel/haswell/software/Python-bundle-PyPI/2023.06-GCCcore-12.3.0/lib/python3.11/site-packages/regex/_regex_core.py", line 21, in <module>
+    import regex._regex as _regex
+ModuleNotFoundError: No module named 'regex._regex'

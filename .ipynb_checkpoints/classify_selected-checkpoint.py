@@ -21,7 +21,6 @@ import lightning as L
 from lightning.pytorch.callbacks import ModelCheckpoint, EarlyStopping
 from lightning.pytorch.loggers import WandbLogger
 import wandb
-from dotenv import load_dotenv
 
 cache_dir = "./cache_dir"
 os.environ["TRANSFORMERS_CACHE"] = cache_dir
