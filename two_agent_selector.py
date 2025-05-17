@@ -5,9 +5,11 @@ import requests
 from datasets import load_from_disk
 from tqdm import tqdm
 import re
+from dotenv import load_dotenv
 
 # === Config ===
-DEEPSEEK_API_KEY = "sk-2377e5a6b92e4847b17ed9f51bdeebd9"
+load_dotenv()  # Load from .env file
+DEEPSEEK_API_KEY = os.getenv("DEEPSEEK_API_KEY")
 DATASET_DIR = os.path.expanduser("~/active_learning/processed_data/refind")
 OUTPUT_DIR = "./selection_outputs/two_stage_chunk"
 CHUNK_SIZE_1 = 2  # N: Agent 1 selects 1 out of N

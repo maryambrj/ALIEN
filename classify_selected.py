@@ -21,13 +21,14 @@ import lightning as L
 from lightning.pytorch.callbacks import ModelCheckpoint, EarlyStopping
 from lightning.pytorch.loggers import WandbLogger
 import wandb
+from dotenv import load_dotenv
 
 cache_dir = "./cache_dir"
 os.environ["TRANSFORMERS_CACHE"] = cache_dir
 
 os.environ["TOKENIZERS_PARALLELISM"] = 'false'
 
-wandb.login(key="afe2b4c13f4d4249c17ee4463a0d5d02f0c95910")
+wandb.login(key="REMOVED")
 wandb.init(
     project='active_learning',
     name='roberta_base'
@@ -192,7 +193,7 @@ columns_to_keep = ['input_ids', "attention_mask", 'label']
 tokenized_dataset = tokenized_dataset.remove_columns([col for col in all_columns if col not in columns_to_keep])
 
 # Load selected indices from file
-with open("selected_indices.txt", "r") as f:
+with open("./selection_outputs/two_stage_chunk/phase1_yes.txt", "r") as f:
     selected_indices = [int(line.strip()) for line in f.readlines()]
 subset_train_dataset = tokenized_dataset['train'].select(selected_indices)
 
