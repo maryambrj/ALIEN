@@ -93,26 +93,26 @@ dedup_columns = [f'dedup_{col}' for col in ['head_entity_text', 'tail_entity_tex
 df = df.drop_duplicates(subset=dedup_columns, keep='first')
 
 # Limit each unique relation value to maximum 10 rows (choose random 10 for each relation)
-df = df.groupby('relation', group_keys=False).apply(lambda x: x.sample(n=min(len(x), 10), random_state=42)).reset_index(drop=True)
+df = df.groupby('relation', group_keys=False).apply(lambda x: x.sample(n=min(len(x), 5), random_state=42)).reset_index(drop=True)
 
 # Export original columns (not the dedup temp ones)
-df[csv_columns].to_csv('test_refined_filtered.csv', index=False)
+df[csv_columns].to_csv('test_refined_filtered_lite.csv', index=False)
 
 # Clean up temp columns for further use (if needed)
-df = df.drop(columns=dedup_columns)
-# --- end CSV Export block ---
-
-train_dataset = Dataset.from_list(train_data)
-# valid_dataset = Dataset.from_list(dev_data)
-# test_dataset = Dataset.from_list(test_data)
-
-dataset = DatasetDict(
-    {
-        'train': train_dataset,
-        # 'test': test_dataset,
-        # 'validation': valid_dataset
-    }
-)
-
-dataset.save_to_disk('./processed_data/refined')
-dataset = datasets.load_from_disk('./processed_data/refined')
+# df = df.drop(columns=dedup_columns)
+# # --- end CSV Export block ---
+#
+# train_dataset = Dataset.from_list(train_data)
+# # valid_dataset = Dataset.from_list(dev_data)
+# # test_dataset = Dataset.from_list(test_data)
+#
+# dataset = DatasetDict(
+#     {
+#         'train': train_dataset,
+#         # 'test': test_dataset,
+#         # 'validation': valid_dataset
+#     }
+# )
+#
+# dataset.save_to_disk('./processed_data/refined')
+# dataset = datasets.load_from_disk('./processed_data/refined')
