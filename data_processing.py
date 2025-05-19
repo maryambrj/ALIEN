@@ -5,6 +5,10 @@ import pandas as pd
 import datasets
 from datasets import concatenate_datasets, Dataset, DatasetDict
 
+# PARAMETER
+all_data = True #uses the entire json raw data
+
+
 # dataset_dir = './raw_data/refind/'
 train_data = json.load(
     open('test_refined_official.json', 'r')
@@ -93,10 +97,13 @@ dedup_columns = [f'dedup_{col}' for col in ['head_entity_text', 'tail_entity_tex
 df = df.drop_duplicates(subset=dedup_columns, keep='first')
 
 # Limit each unique relation value to maximum 10 rows (choose random 10 for each relation)
-df = df.groupby('relation', group_keys=False).apply(lambda x: x.sample(n=min(len(x), 5), random_state=42)).reset_index(drop=True)
+if not all_data:
+    df = df.groupby('relation', group_keys=False).apply(lambda x: x.sample(n=min(len(x), 5), random_state=42)).reset_index(drop=True)
+    df[csv_columns].to_csv('test_refined_filtered_lite.csv', index=False)
+else:
+    df[csv_columns].to_csv('test_refined_filtered.csv', index=False)
 
 # Export original columns (not the dedup temp ones)
-df[csv_columns].to_csv('test_refined_filtered_lite.csv', index=False)
 
 # Clean up temp columns for further use (if needed)
 # df = df.drop(columns=dedup_columns)
