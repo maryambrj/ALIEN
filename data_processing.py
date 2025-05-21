@@ -6,7 +6,7 @@ import datasets
 from datasets import concatenate_datasets, Dataset, DatasetDict
 
 # PARAMETER
-all_data = True #uses the entire json raw data
+all_data = False #uses the entire json raw data
 
 
 # dataset_dir = './raw_data/refind/'
@@ -98,7 +98,7 @@ df = df.drop_duplicates(subset=dedup_columns, keep='first')
 
 # Limit each unique relation value to maximum 10 rows (choose random 10 for each relation)
 if not all_data:
-    df = df.groupby('relation', group_keys=False).apply(lambda x: x.sample(n=min(len(x), 5), random_state=42)).reset_index(drop=True)
+    df = df.groupby('relation', group_keys=False).apply(lambda x: x.sample(n=min(len(x), 25), random_state=42)).reset_index(drop=True)
     df[csv_columns].to_csv('test_refined_filtered_lite.csv', index=False)
 else:
     df[csv_columns].to_csv('test_refined_filtered.csv', index=False)
