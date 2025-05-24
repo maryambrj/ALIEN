@@ -1,17 +1,18 @@
 from dotenv import load_dotenv
 from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
 from langchain_openai import ChatOpenAI
-from langchain_google_genai import ChatGoogleGenerativeAI
-from langchain_core.output_parsers.pydantic import PydanticOutputParser
-from langchain_google_vertexai import ChatVertexAI
+# from langchain_google_genai import ChatGoogleGenerativeAI
+# from langchain_core.output_parsers.pydantic import PydanticOutputParser
+# from langchain_google_vertexai import ChatVertexAI
 from langchain_core.messages import BaseMessage, HumanMessage
 from langgraph.graph import END, MessageGraph
+from langchain_deepseek import ChatDeepSeek
 from pydantic import BaseModel, Field
 from typing import List, Literal, Sequence
 import pandas as pd
 import json
 import csv
-import math
+# import math
 
 load_dotenv()
 
@@ -79,8 +80,8 @@ def chunk_list(lst, n_chunks):
         end = (i + 1) * k + min(i + 1, m)
         yield lst[start:end]
 #########################################################################################
-CSV_PATH = "test_refined_filtered_lite.csv"
-CHUNKS = 10  # Number of chunks; can make this a parameter as needed
+CSV_PATH = "test_refined_filtered.csv"
+CHUNKS = 60  # Number of chunks; can make this a parameter as needed
 #########################################################################################
 
 # Remove header from input as the first thing
@@ -152,7 +153,13 @@ class LLMTableOutput(BaseModel):
 # output_parser = PydanticOutputParser(pydantic_object=LLMTableOutput)
 
 # generating_llm_raw = ChatVertexAI(temperature = 0, model="gemini-2.5-pro-preview-05-06")
-generating_llm_raw = ChatOpenAI(model="o3-mini-2025-01-31")
+# generating_llm_raw = ChatOpenAI(model="o3-mini-2025-01-31")
+generating_llm_raw = ChatDeepSeek(
+    model="deepseek-chat",
+    temperature=0,
+    max_tokens=None,
+    timeout=None
+)
 # generating_llm_raw = ChatGoogleGenerativeAI(temperature = 0, model="gemini-2.5-flash-preview-05-20")
 
 generating_llm = generating_llm_raw.with_structured_output(LLMTableOutput)
