@@ -1,0 +1,388 @@
+head_entity_text,tail_entity_text,relation
+TECOGEN INC,American DG Energy Inc,acquired_on
+PEDEVCO CORP,Sterling,agreement_with
+Georgia Commerce Bank,IBERIABANK CORP,acquired_by
+Birch Advisors,Birch First Capital,agreement_with
+NEUROONE MEDICAL TECHNOLOGIES Corp,OSE,no_relation
+First Community Bank,The First Bancshares Inc,acquired_by
+HWT,Alpine 4,acquired_by
+Akcea,Novartis,agreement_with
+JustGiving,BLACKBAUD INC,acquired_by
+Quest Resource Holding Corp,Earth911,acquired_by
+CDI,GlassBridge Enterprises Inc,subsidiary_of
+Hudspeth,TORCHLIGHT ENERGY RESOURCES INC,acquired_by
+Lochrane,May 1 2017,no_relation
+OCC,2016,no_relation
+Tianci International Inc,October 13 2016,no_relation
+Vapor Shark,March 2017,no_relation
+Radwell Leasing LLC,March 20 2017,no_relation
+Tronco,March 28 2017,no_relation
+Follett Corporation,May 31 2016,no_relation
+Advanced Environmental Petroleum Producers Inc,Subsequent to March 31 2017,no_relation
+Sprint Corporation,March 31 2017,no_relation
+Northern Energy Power,November 18 2016,no_relation
+Genomas,September 29 2016,no_relation
+CTG Advanced Materials LLC,March 11 2016,no_relation
+Hotel,August 2014,no_relation
+Otono Networks Inc,September 19 2017,no_relation
+Alta Disposal Morinville Ltd,October 18 2013,no_relation
+Romney,2007,no_relation
+Aperture,December 29 2015,no_relation
+GBO,2013,no_relation
+Contel,January 2016,no_relation
+Jinvator,May 10 2017,no_relation
+MyBuilder Limited,March 24 2017,no_relation
+Plain Vanilla,December 19 2016,no_relation
+RL Venture,January 2015,no_relation
+Softmart Inc,May 27 2016,no_relation
+Marina Biotech Inc,LipoMedics,agreement_with
+WALKER INNOVATION INC,Upside,agreement_with
+Global Net Lease Inc,BMO Capital Markets Corp,agreement_with
+SCOTTS MIRACLE - GRO CO,Bonnie,agreement_with
+ENSIGN GROUP  INC,CareTrust,agreement_with
+State Veteran Homes,VA Medical Centers,agreement_with
+VEEVA SYSTEMS INC,salesforcecom,agreement_with
+ENDRA Life Sciences Inc,Green Court  LLC,agreement_with
+Lithium Exploration Group  Inc,GD Glottech International,shares_of
+ARENA PHARMACEUTICALS INC,Eisai,agreement_with
+Rocky Mountain Chocolate Factory  Inc,ALY,no_relation
+Tabula Rasa HealthCare  Inc,Sinfon a HealthCare Corporation,agreement_with
+Archrock  Inc,Exterran Corporation,agreement_with
+Voya Financial  Inc,SLDI,agreement_with
+Entergy Arkansas,Entergy New Orleans,no_relation
+DanDrit Biotech USA  Inc,Cellin Technologies,agreement_with
+WESTINGHOUSE ELECTRIC COMPANY LLC,Santee Cooper,agreement_with
+Sabre Corp,DXC,agreement_with
+ARI,ARL,agreement_with
+Essential Beverage Corporation,Smartag International  Inc,agreement_with
+ICGL,Fortune Delight Holdings Group Ltd,agreement_with
+Bethel,Bemax,agreement_with
+Laser Quantum,NOVANTA INC,agreement_with
+REDWOOD TRUST INC,FHLB,agreement_with
+Immune Design Corp,GLA,agreement_with
+Markscheid,Princeton University,attended
+Markscheid,Johns Hopkins University,attended
+Leung,the City University of Hong Kong,attended
+Markscheid,Columbia University,attended
+Xia,Wuhan City Construction College,attended
+Jorden,Northwestern University,attended
+Brian J Day,the University of Colorado,no_relation
+FONAR CORP,$ 278 million,no_relation
+Global Solutions,$ 1087 million,no_relation
+Makkanotti Group Corp,912,cost_of
+CTI INDUSTRIES CORP s,approximately $ 12000,loss_of
+Crandall Melvin III,SilverSun Technologies  Inc,title
+Stephen R Rizzone,Energous Corp s,title
+Chae,International Private Equity,title
+Curtis C Simard,BAR HARBOR BANKSHARES,title
+Robert P Johnson,AEI Fund Management XXI  Inc,title
+Marek Tomaszekwsi,SUCCESS ENTERTAINMENT GROUP INTERNATIONAL INC  's,title
+Paradiso,Union Texas Petroleum,employee_of
+Bao,Allergan  Inc,employee_of
+Hightower,PARKERVISION INC,title
+McNealey,ENZON PHARMACEUTICALS  INC,member_of
+Jiang Da Wei,Chee Corp,title
+Paradiso,Ryder Scott,employee_of
+Walter W Bettinger II,SCHWAB CHARLES CORP,title
+Gunnar Wiedenfels,Discovery,title
+Carlos Camarotti,HMG COURTLAND PROPERTIES INC,title
+del Alamo,Sarbanes Oxley Compliance,title
+Bruno Wu,DEMAND HOLDINGS  INC,employee_of
+Chandler,StrataCom  Inc,title
+Siciliano,CSA HOLDINGS INC,employee_of
+Luke Alvarez,Inspired Entertainment  Inc,title
+Grace He,YOU ON DEMAND HOLDINGS  INC,title
+Manocha,TriArtisan,title
+Jure Perko,Capstone Systems Inc,title
+Terri A Morrical,WTT  Incorporated,no_relation
+Nicholas Nilsen,MVP REIT,member_of
+HFF  Inc,Delaware,headquartered_in
+HFF  Inc,Texas,no_relation
+RESERVE PETROLEUM CO s Equity Investments,Oklahoma City,operations_in
+RCG Insurance Company,New York,formed_in
+LKA,Washington,no_relation
+Lazard Ltd,Delaware,formed_in
+Drumlummon Gold Mines Corporation,US,formed_in
+Nimble Storage Inc,US,operations_in
+Petrogress  Inc s,Delaware,no_relation
+KSIX Media Holdings  Inc,Nevada,formed_in
+SCIENTIFIC ENERGY INC,the British Virgin Islands,formed_in
+The Crowne Plaza - Northstar Hotel,Minneapolis,operations_in
+Magellan,Delaware,formed_in
+DSS,India,formed_in
+Transferor,Delaware,no_relation
+LLC FFIN Bank,Russia,formed_in
+Asia Stem Cell Bank,PRC,operations_in
+Laredo Oil  Inc,March 31  2008,formed_on
+Cole  Inc,November 3  1999,formed_on
+BGE,1906,formed_on
+SECURITY NATIONAL FINANCIAL CORP,2012,formed_in
+TransAKT HK,November 20  2007,formed_on
+Evident,April 2015,formed_in
+Mayetok  Inc,April 29  2008,formed_on
+The United States Gasoline Fund  LP,April 13  2007,formed_on
+Rialto,January 1  2006,no_relation
+Management Overview Independence Contract Drilling  Inc,November 4  2011,formed_on
+Gala Global Inc,March 10  2010,formed_on
+Two River Community Bank,January 2000,formed_in
+Wholehealth Products  Inc,February 21  2006,formed_on
+Armada Hoffler Properties  Inc,October 12  2012,formed_on
+TriplePoint Venture Growth BDC Corp Adviser,August 2013,formed_in
+VEI CHN,November 16  2001,formed_on
+ZAIS CLO 6,November 2016,formed_in
+Verde Resources  Inc,April 22  2010,formed_on
+Nabriva Therapeutics plc,March 1  2017,formed_on
+Corcept Therapeutics UK Limited,March 2017,formed_in
+Mammoth Equipment Leasing LLC,November 14  2016,no_relation
+IPL,1925,formed_in
+XBiotech Inc,March 22  2005,formed_on
+APT Systems  Inc,October 29  2010,formed_on
+Bollente Companies Inc,November 21  2013,formed_on
+Petros G Economides,IronFX,founder_of
+Alfred C Liggins  III,TV One,founder_of
+Levin,Levin Development Company,founder_of
+Kevin G Peters,Aerpio Pharmaceuticals,founder_of
+Ralph Bartel,Travelzoo,founder_of
+Chapman,ASiQ Ltd,founder_of
+Buckman,ev3  LLC,no_relation
+Welters,AmeriChoice,founder_of
+MacLellan,Broadband Access MarketSpace  Ltd,founder_of
+Fred R Adams  Jr,CAL - MAINE FOODS INC,founder_of
+QIAN Hong,Vacances Sinorama,shares_of
+Rani Kohen,SQL Technologies Corp,agreement_with
+Steven Hill,PowerShares DB Commodity Index Tracking Fund,title
+Zhiguo Wang,HEFS,no_relation
+Ngim,Ameristock Corporation,founder_of
+Mathis,Hollywood Burger Holdings  Inc,founder_of
+John Yu,ImmunoCellular Therapeutics  Ltd 's,founder_of
+Cook,Cook Brothers Painting  Inc,no_relation
+Caldwell,MARCHEX INC,founder_of
+Clean Earth,Hatboro,headquartered_in
+WPE,Coquitlam,headquartered_in
+Armada Hoffler Properties,Virginia,headquartered_in
+the UK Healthcare Homes,Colchester,headquartered_in
+CSB,Ankeny,headquartered_in
+Stagecoach,Texas,headquartered_in
+Hengbao,Beijing,headquartered_in
+SAFEGUARD SCIENTIFICS INC,Dallas,no_relation
+Inventergy Global  Inc,Cupertino,headquartered_in
+Armada Hoffler Properties,Virginia Beach,headquartered_in
+Roadrunner Transportation Systems,Cudahy,headquartered_in
+GLOBUS MEDICAL INC,Audubon,headquartered_in
+YBCC  Inc,China,operations_in
+The University of California Family Camp,California,no_relation
+Properties Atlas Financial Holdings ,USA,headquartered_in
+Properties Atlas Financial Holdings ,Illinois,headquartered_in
+SAFEGUARD SCIENTIFICS INC,Dallas,no_relation
+the Richland Bank Division,Mansfield,headquartered_in
+Properties Atlas Financial Holdings ,Elk Grove Village,headquartered_in
+Apptio Inc,Bellevue,headquartered_in
+Manitoba Harvest,Winnipeg,headquartered_in
+Natural Grocers by Vitamin Cottage  Inc,Lakewood,headquartered_in
+Belos SA,Bielsko - Biala,headquartered_in
+Community Bankers Trust Corporation,Richmond,headquartered_in
+CSB,Iowa,headquartered_in
+Five Oaks Investment Corp,19779612,loss_of
+VIGILANT DIVERSIFIED HOLDINGS  INC/NV net,16832,loss_of
+Associated Capital Group  Inc,$ 61 million,loss_of
+VANJIA CORP,59959,loss_of
+Mirage Energy Corp,nil,loss_of
+EnSync  Inc,4445704,loss_of
+TOWERSTREAM CORP,20436496,loss_of
+EOS INC ,25055,loss_of
+Pulse Beverage Corp,1542513,loss_of
+SEARS HOLDINGS CORP,$ 830 million,loss_of
+Makkanotti Group Corp,8070,loss_of
+VIASPACE Inc s,223000,loss_of
+Makkanotti Group Corp,9582,loss_of
+WINGS & THINGS INC,9863,loss_of
+EnSync  Inc,8203114,loss_of
+Dova Pharmaceuticals  Inc,$ 109 million,loss_of
+SEARS HOLDINGS CORP,$ 792 million,loss_of
+SEARS HOLDINGS CORP,$ 830 million,loss_of
+INTERNATIONAL ISOTOPES INC,2970628,loss_of
+SEARS HOLDINGS CORP,$ 953 million,loss_of
+Aldeyra Therapeutics  Inc,4769,loss_of
+China ACM s,approximately $ 09 million,loss_of
+Pingtan Marine Enterprise Ltd,approximately $ 5479000,no_relation
+SONUS NETWORKS INC,$ 41 million,no_relation
+Celsion CORP,$ 52 million,no_relation
+Cooper,Access,agreement_with
+Robert FX Sillerman,DraftDay Fantasy Sports  Inc 's,title
+Patricia L Kampling,IPL,title
+Jack L Rivkin,APM,title
+Loy,BTU International  Inc,title
+Douglas J Lanier,Swift Energy,title
+David Phipps,Orbital Tracking Corp,no_relation
+Joe,the Managing Owner,title
+Jeff,RespireRx Pharmaceuticals Inc,title
+Samuel R Saks,Compensation Committee,member_of
+Moylan,Dataram Memory,title
+Johnson,St Albans School,member_of
+Dillon,Silver Spring Networks,title
+Hoffler,Armada Hoffler Properties  Inc,title
+Schwarzman,Blackstone Group LP,founder_of
+Buser,Carlyle s Executive Group,member_of
+Stephen A Schwarzman,Blackstone Group LP,founder_of
+Jeffrey Shuren,FDA,title
+Christopher R Manning,Midstream Management,title
+Balduzzi,TVA,no_relation
+Shepherd,Construction Materials,title
+Forman,FSIC II Advisor  LLC,title
+Dean L Cash,ATEL Managing Member  LLC,title
+Stephen A Schwarzman,Blackstone Holdings Partnership Units,shares_of
+Robinson,Denver Equipment Company,title
+Richard Gregory Hurst,the BTMU Purchaser Group,title
+WL Ross Holding Corp,the Business Combination,agreement_with
+McGee,PAGP,no_relation
+TPP Acquisition  Inc,November 8  2016,acquired_on
+Zedge  Inc,00249,no_relation
+Black Hills Colorado Electric Utility Company  LP,Black Hills Colorado Gas Utility Company  LP,no_relation
+LEGACY VENTURES INTERNATIONAL INC ,SEC,no_relation
+Bioverativ,the Bioverativ Distributor Territory,no_relation
+JetPay HR Payroll Segment s,343000,revenue_of
+PROGRESSIVE CORP / OH/ preferred,PROGRESSIVE CORP / OH/ also,no_relation
+Daniel J Watkoske,Print,title
+Weber,EPO,no_relation
+Magna,Inteva,no_relation
+FINRA,BBPO,agreement_with
+Cameron LNG JV,the October 1  2014 effective date,formed_on
+ERA GROUP INC ,the six months ended June 30  2017 and,no_relation
+SPML,FPEC,agreement_with
+Gores Holdings II  Inc s,the period from August 15  2016,formed_on
+Secured Holdings,March 12  2015,no_relation
+Precision Aerospace Components  Inc,approximately $ 384000,no_relation
+Cameron LNG JV,December 31  2015,no_relation
+NII HOLDINGS INC,ice group,agreement_with
+Prime Meridian Holding Co,the period ending March 31  2017,no_relation
+Benjamin Cherniak,ONLINE DISRUPTIVE TECHNOLOGIES  INC,agreement_with
+MITCHAM INDUSTRIES INC,US,no_relation
+Principal Financial Group,Des Moines,operations_in
+The Learning Pharmacy,Mexico,operations_in
+SSN,San Antonio,operations_in
+SemGroup Corp,Cushing,operations_in
+VStock Transfer  LLC,Woodmere,headquartered_in
+Medical Center of Excellence,Florida,operations_in
+INTERLINK ELECTRONICS INC,US,operations_in
+ALAMO GROUP INC,US,no_relation
+EnergySolutions  LLC,Zion,operations_in
+MBank,Oregon,operations_in
+MOSAIC CO Hersey,Hersey,operations_in
+SQEC,Bao  Shanshan,no_relation
+Big Red,Chicago,operations_in
+SJRG,PA,operations_in
+PDL BIOPHARMA  INC,the United States,no_relation
+PAR TECHNOLOGY CORP,US,operations_in
+Cornerstone OnDemand Inc,Spain,operations_in
+3SBio,China,headquartered_in
+LIFEWAY FOODS INC 's,Ireland,operations_in
+the Montauban Mining Project,Montauban,operations_in
+SRT Holdings,Glenborough,no_relation
+JIN WAN HONG INTERNATIONAL HOLDINGS Ltd,Guangdong,operations_in
+KAMAN Corp,Peru,operations_in
+ALAMO GROUP INC,Canada,operations_in
+TELEFLEX INC s,China,operations_in
+Wowio Inc,21229,profit_of
+Personal Lines,$ 408 million,profit_of
+Makkanotti Group Corp,7493,profit_of
+Wowio Inc,81104,profit_of
+Consolidated,127766,profit_of
+CA - NA,$ 338 million,cost_of
+MARCUS CORP,approximately $ 600000,revenue_of
+MARCUS CORP,approximately $ 46 million,revenue_of
+Professional Services,$ 207 million,revenue_of
+AXA,$ 100 billion,revenue_of
+ATI Modular Technology Corp 's,250000,revenue_of
+NUVASIVE INC,$ 772 million,revenue_of
+AIR T INC s,approximately $ 17974000,revenue_of
+AIR T INC s,36626000,revenue_of
+YuMe Inc,$ 619 million,revenue_of
+NUVASIVE INC,$ 963 million,revenue_of
+Werner Logistics,$ 3100 million,revenue_of
+Matador Resources Co,$ 2783 million,revenue_of
+Sears Domestic 's,$ 170 billion,revenue_of
+FS Energy & Power Fund,3358,loss_of
+EnSync Inc,382261,revenue_of
+Blue Apron Holdings Inc,$ 2448 million,revenue_of
+EnSync Inc,865515,revenue_of
+AIR T INC s,approximately $ 48949000,revenue_of
+EnSync Inc,655237,revenue_of
+FleetNet,$ 436 million,revenue_of
+Endurance International Group Holdings Inc,$ 7413 million,revenue_of
+LatAm,$ 19905 million,cost_of
+YuMe Inc,$ 633 million,no_relation
+Naglazyme,$ 3031 million,no_relation
+Dermira Inc,Cowen,agreement_with
+CAH,Colony Starwood Homes,acquired_by
+Lithium Exploration Group Inc,LG Capital Funding LLC,agreement_with
+Crypto - Services Inc,Fortune Valley Treasures Inc s,no_relation
+PBF Energy Inc,PBF LLC,shares_of
+YOU ON DEMAND HOLDINGS INC,SSS,no_relation
+LRY,Suzhou Gao Feng Hui Property Management Company Limited,no_relation
+Flat Creek Fiduciary Management,EMAGIN CORP,shares_of
+ARPI,American Homes 4 Rent Class,acquired_by
+Berry,LINN Energy,acquired_by
+OMNICOMM SYSTEMS INC s,Voting Securities,no_relation
+Lithium Exploration Group Inc,GD International,no_relation
+Napo,Jaguar Health Inc,agreement_with
+FHLB,HILLS BANCORPORATION s,no_relation
+Bluestone Advisors LLC,ACTIVECARE INC,agreement_with
+DuPont,Health and Nutrition,no_relation
+MedTRX,First Choice Healthcare Solutions Inc,agreement_with
+D Mecatronics,D R Technology,no_relation
+Lithium Exploration Group Inc,JMJ Financial,agreement_with
+Gateway,Anchor,agreement_with
+Emmis,WBLS - FM,acquired_on
+Armada Enterprises GP LLC,BIM HOMES INC s,no_relation
+Black Economic Empowerment,DBT Technologies ( PTY ) LTD,no_relation
+YOU ON DEMAND HOLDINGS INC,Tianjin Enternet,no_relation
+OncoCyte Corp,BioTime,no_relation
+KCP L Greater Missouri Operations Company,Great Plains Energy,subsidiary_of
+Georgia Commerce Bank,Georgia Commerce Bancshares Inc,subsidiary_of
+Eloxx Pharmaceuticals Ltd,Sevion Therapeutics Inc s,acquired_by
+Magellan Diagnostics Inc,Magellan Biosciences Inc,acquired_by
+Joway Shengshi,Joway Health Industries Group Inc,subsidiary_of
+Dana Petroleum PLC,the Korean National Oil Corporation,subsidiary_of
+RMC Reinsurance Ltd,Regional Management Corp,subsidiary_of
+Castle Brands Inc,GCP,no_relation
+EWSD I,Notis Global Inc s,subsidiary_of
+MRCC SBIC,MONROE CAPITAL Corp s,subsidiary_of
+Auracana Orbital Tracking Corp,RZ Acquisition Corp,acquired_on
+Gilman Ciocia  Inc,NATIONAL HOLDINGS CORP,subsidiary_of
+Swirl,CherryBerry Corporate LLC,agreement_with
+Wujiang SigmaTron Electronics Co  Ltd,SIGMATRON INTERNATIONAL INC s,subsidiary_of
+Orbital Satcom Corp,Orbital Tracking Corp,subsidiary_of
+Castle Brands Inc,Gosling - Castle Partners  Inc,subsidiary_of
+Blackstone Holdings Partnership Units,The Blackstone Group LP,shares_of
+Hawaii Gas,Macquarie Group Limited,agreement_with
+Lithium Exploration Group  Inc,Alta Disposal Ltd,subsidiary_of
+Save On,Petroterra Corp,subsidiary_of
+Lithium Exploration Group  Inc,Alta Disposal Ltd,subsidiary_of
+NovaCopper US Inc,Trilogy,subsidiary_of
+DAF Trucks NV,PACCAR Inc,subsidiary_of
+CMS Land CMS Land Company,CMS Capital,subsidiary_of
+Andrew S Marsh,Executive Vice President,title
+Tony Liu,Chairman,title
+Larry,executive,no_relation
+Matthew S Alexander,General Counsel,title
+James,executive,title
+Alex Kam,director,title
+Robert M Bakish,President,title
+Neis,Controller,title
+J Bruce Emmons,President,title
+Muthu,director,title
+Danny Chan,Chief Executive Officer,title
+Manuel Teixeira,Chief Executive Officer,title
+Elizabeth Hambrecht,Chief Financial Officer,title
+Bertrand Loy,director,title
+Branson,owner,title
+Anant Bhalla,Chief Financial Officer,title
+Jeffrey M Slotterback,Chief Financial Officer,title
+Chris Bowers,President,title
+Qing Tong,Chairman,title
+Yuen,Chairman,title
+James M Hochman,Chief Executive,title
+Paul M Silva,Vice President,title
+J Cecil Curlee Jr,Vice President,title
+Justice W Anderson,President,title
+Matthew Wiles,General Manager,title
