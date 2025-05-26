@@ -16,3 +16,4 @@ ENV/
 dist/
 build/
 datasets/
+relation_forger_agent/faiss_indices/

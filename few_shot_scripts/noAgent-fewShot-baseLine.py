@@ -11,7 +11,7 @@ from openai import OpenAI
 import instructor
 
 load_dotenv("./../.env")
-API_KEY = os.getenv("OPEN_AI_API")
+API_KEY = os.getenv("OPENAI_API")
 
 client = instructor.patch(OpenAI(api_key=API_KEY), mode=instructor.Mode.FUNCTIONS)
 client.max_retries = 2
