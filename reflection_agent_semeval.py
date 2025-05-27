@@ -2,10 +2,7 @@ from dotenv import load_dotenv
 from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
 from langchain_openai import ChatOpenAI
 import os
-# from langchain_google_genai import ChatGoogleGenerativeAI
-# from langchain_core.output_parsers.pydantic import PydanticOutputParser
-# from langchain_google_vertexai import ChatVertexAI
-from langchain_deepseek import ChatDeepSeek
+from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain_core.messages import BaseMessage, HumanMessage
 from langgraph.graph import END, MessageGraph
 from pydantic import BaseModel, Field
@@ -14,10 +11,10 @@ import pandas as pd
 import json
 import csv
 import math
+import time
+from tenacity import retry, stop_after_attempt, wait_exponential
 
 load_dotenv()
-DEEPSEEK_API_KEY = os.getenv("DEEPSEEK_API_KEY")
-
 
 def load_entity_story_rows_from_csv(csv_path: str):
     """
@@ -88,33 +85,6 @@ CHUNKS = 50  # Number of chunks; can make this a parameter as needed
 input_header, ENTITY_STORY_ROWS = load_entity_story_rows_from_csv(CSV_PATH)
 chunks = list(chunk_list(ENTITY_STORY_ROWS, CHUNKS))
 
-generate_prompt_template = [
-    (
-        "system",
-        "You are an entity relationship extractor that, given entity, target entity, and their corresponding story text, "
-        "extracts relationships between the entity and target entity. "
-        "Generate a table with the columns: Entity, Target Entity, and Relation. Do not use any other information than the story text."
-        "Each extraction (row) should have one entity, one relationship, and one target corresponding to the story provided."
-        "Relations MUST be one of these: 'Message-Topic (e1, e2)','Product-Producer (e2, e1)','Instrument-Agency (e2, e1)','Entity-Destination (e1, e2)','Cause-Effect (e2, e1)',"
-        "'Component-Whole (e1, e2)', 'Product-Producer (e1, e2)', 'Member-Collection (e2, e1)', 'Other', 'Entity-Origin (e1, e2)', 'Content-Container (e1, e2)',"
-        "'Entity-Origin (e2, e1)', 'Cause-Effect (e1, e2)', 'Component-Whole (e2, e1)', 'Content-Container (e2, e1)', 'Instrument-Agency (e1, e2)', 'Message-Topic (e2, e1)',"
-        "'Member-Collection (e1, e2)', 'Entity-Destination (e2, e1)'."
-        "Choose the closest option among the ones mentioned above as relation between entity and target entity. If you can't find any relation given the story text, answer with 'Other'. "
-        "Direction matters: relationship is from Entity to Target Entity (do not include both sides). If the relation is from entity to target entity, choose then (e1, e2) version, or if vice versa choose (e2, e1)"
-        "Remember to process all rows (the entire table). So the number of input data rows and output must be the same."
-        "Always separate the columns with a pipe '|' in your table to keep the format consistent."
-        "Don't extract relationships for any entity not listed."
-        "Always include the headers | Entity | Target Entity | Relation | as the first row of the table. "
-        "If the user provides critique, respond with a revised version. No instructions in final result - only the table."
-    ),
-    (
-        "system",
-        "Here are the entities, target entities, and corresponding story texts:\n\n"
-        "{entity_story_context}\n"
-    ),
-    MessagesPlaceholder(variable_name="messages"),
-]
-
 reflection_prompt_template = [
     (
         "system",
@@ -155,28 +125,13 @@ class LLMTableOutput(BaseModel):
     rows: List[TableRow]
 
 
-# output_parser = PydanticOutputParser(pydantic_object=LLMTableOutput)
-
-# generating_llm_raw = ChatVertexAI(temperature = 0, model="gemini-2.5-pro-preview-05-06")
-# generating_llm_raw = ChatOpenAI(model="o3-mini-2025-01-31")
-generating_llm_raw = ChatDeepSeek(
-    model="deepseek-chat",
-    temperature=0,
-    max_tokens=None,
-    timeout=None
-)
-# generating_llm_raw = ChatGoogleGenerativeAI(temperature = 0, model="gemini-2.5-flash-preview-05-20")
-
+generating_llm_raw = ChatGoogleGenerativeAI(temperature=0, model="gemini-2.5-pro-preview-05-06")
 generating_llm = generating_llm_raw.with_structured_output(LLMTableOutput)
+reflection_llm = ChatOpenAI(model="o3-mini-2025-01-31")
 
-# generating_llm = ChatOpenAI(model="o3-mini-2025-01-31")
-reflection_llm = ChatOpenAI(temperature=0, model="gpt-4o")
 
 # Agent execution for each chunk
 def run_agent_on_chunk(chunk_rows):
-
-
-
     entity_story_context = make_context_table(chunk_rows)
 
     generate_prompt = ChatPromptTemplate.from_messages([
@@ -220,15 +175,43 @@ def run_agent_on_chunk(chunk_rows):
     from langchain_core.messages import AIMessage, HumanMessage
 
     def generation_node(state: Sequence[BaseMessage]):
-        output = generate_chain.invoke({"messages": state})
-        # Ensure the output is always wrapped as a message (convert to readable string or format as needed)
-        temp = [row.model_dump() for row in output.rows]
-        return [AIMessage(content=json.dumps(temp))]
+        max_retries = 3
+        retry_count = 0
+        
+        while retry_count < max_retries:
+            try:
+                output = generate_chain.invoke({"messages": state})
+                # Check if output and output.rows exist
+                if output is None or not hasattr(output, 'rows') or output.rows is None:
+                    print(f"Warning: Output structure invalid, retrying... (attempt {retry_count + 1}/{max_retries})")
+                    retry_count += 1
+                    # Add a small delay before retrying
+                    time.sleep(2)
+                    continue
+                
+                # If we get here, output.rows exists and is not None
+                temp = [row.model_dump() for row in output.rows]
+                return [AIMessage(content=json.dumps(temp))]
+                
+            except AttributeError as e:
+                # Handle the specific AttributeError we're concerned about
+                print(f"AttributeError occurred: {e}, retrying... (attempt {retry_count + 1}/{max_retries})")
+                retry_count += 1
+                # Add a small delay before retrying
+                time.sleep(2)
+            except Exception as e:
+                # Handle any other exceptions
+                print(f"Unexpected error: {e}, retrying... (attempt {retry_count + 1}/{max_retries})")
+                retry_count += 1
+                # Add a small delay before retrying
+                time.sleep(2)
+        
+        # If we've exhausted all retries, return an error message
+        return [AIMessage(content="Error: Failed to process this chunk after multiple attempts. Moving to next chunk.")]
 
     def reflection_node(messages: Sequence[BaseMessage]) -> List[BaseMessage]:
         res = reflect_chain.invoke({"messages": messages})
         return [HumanMessage(content=res.content)]
-
 
     builder = MessageGraph()
     builder.add_node(GENERATE, generation_node)
@@ -249,6 +232,7 @@ def run_agent_on_chunk(chunk_rows):
     response = graph.invoke(initial_messages)
     return response
 
+# Main execution with retry mechanism
 if __name__ == "__main__":
     print("Hello LangGraph! Running chunked agent extraction...")
 
@@ -256,28 +240,41 @@ if __name__ == "__main__":
     all_rows = []
     # Use your desired/fixed header order here
     csv_headers = ["head_entity_text", "tail_entity_text", "relation"]
+    
     for ix, chunk in enumerate(chunks):
         print(f"Processing chunk {ix+1}/{CHUNKS} (rows {len(chunk)}) ...")
-        response = run_agent_on_chunk(chunk)
-        table_content = response[-1].content
-
-
-        data = json.loads(table_content)  # This gives you a list of dicts
-        all_data.extend(data)
-
-
-
-        # Map the extracted row columns to fixed header order
-        # headers: [Entity, Target Entity, Relationship] (after column swap)
         
-        # Column indices after swap:
-        # headers[0]: Entity -> head_entity_text
-        # headers[1]: Target Entity -> tail_entity_text
-        # headers[2]: Relationship -> relation
+        max_chunk_retries = 3
+        chunk_retry_count = 0
+        chunk_processed = False
+        
+        while not chunk_processed and chunk_retry_count < max_chunk_retries:
+            try:
+                response = run_agent_on_chunk(chunk)
+                table_content = response[-1].content
+                
+                # Check if the content suggests an error occurred
+                if "Error: Failed to process this chunk" in table_content:
+                    raise Exception("Failed to process chunk after multiple attempts")
+                
+                # Try to parse the JSON - if this fails, it will raise an exception
+                data = json.loads(table_content)
+                
+                # If we get here, parsing was successful
+                all_data.extend(data)
+                chunk_processed = True
+                print(f"Successfully processed chunk {ix+1}")
+                
+            except Exception as e:
+                chunk_retry_count += 1
+                print(f"Error processing chunk {ix+1}: {e}. Retry {chunk_retry_count}/{max_chunk_retries}")
+                if chunk_retry_count < max_chunk_retries:
+                    print(f"Retrying chunk {ix+1} in 5 seconds...")
+                    time.sleep(5)
+                else:
+                    print(f"Failed to process chunk {ix+1} after {max_chunk_retries} attempts. Skipping...")
 
     df = pd.DataFrame(all_data)
-    df.to_csv('relationships_semeval.csv', index=False)
+    df.to_csv('relationships_semeval_25ProO3mini.csv', index=False)
 
-    # At the END: add header for output CSV
-
-    print(f"Combined relationships table has been written to relationships.csv")
+    print(f"Combined relationships table has been written to relationships_semeval_25ProO3mini.csv")

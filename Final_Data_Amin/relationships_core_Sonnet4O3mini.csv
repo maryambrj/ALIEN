@@ -1,0 +1,709 @@
+entity,target_entity,relation,invert_relation
+"Winnie, Inc.",Android,product_or_service_of,0
+Marker International,Duplex,product_or_service_of,0
+Stone & Wood Brewing Co.,Lion,undefined,0
+Bell Canada,"Cellport Systems, Inc.",collaboration,0
+Global Electronic Trading Company,GETCO,undefined,0
+Caspian Drilling Company,State Oil Company of Azerbaijan Republic,undefined,0
+oeFun,Wii,product_or_service_of,0
+Roja,Aalayam Productions,undefined,0
+BMD Group,The Australian Financial Review,undefined,0
+MidOcean Partners,Morgan Stanley,undefined,0
+Time Life Television,McGraw-Hill,acquired_by,0
+Lowry Solutions,Printronix,undefined,0
+MidOcean Partners,Diamond Castle Holdings,undefined,0
+"Rubio's Restaurants, Inc.",Orange Julius,undefined,0
+Neptune Comic Distributors Ltd.,Titan Distributors,undefined,0
+Webfoot Technologies Inc.,Dragon Ball Z,product_or_service_of,0
+Nomad,The New York Times,undefined,0
+DX Freight,London Stock Exchange,traded_on,0
+Openismus,GNOME,collaboration,0
+Third Federal,Bauer Financial,undefined,0
+"Endurance International Group, Inc.",Accel-KKR,acquired_by,1
+Yale University,Phibro Animal Health Corporation,undefined,0
+Foreigner,Unique Recording Studios,client_of,0
+Malinche Entertainment,Android,product_or_service_of,0
+Comp Air,Blue Yonder Aviation,collaboration,0
+Price Rite,Wakefern Food Corporation,subsidiary_of,1
+Kingfisher,Entertainment UK,undefined,0
+Granite Ventures,Sendmail,shareholder_of,0
+UBM Aviation,UBM plc,subsidiary_of,1
+Fontana North,Fontana Distribution,collaboration,0
+LucidEra,Crosslink Capital,shareholder_of,1
+Supermarket Direct,Somerfield,subsidiary_of,1
+"Medivation, Inc.",Food and Drug Administration,regulated_by,0
+Imagen Satelital S.A.,TLC,undefined,0
+Rocky Mountain Construction,Tennessee Tornado,undefined,0
+Salsa Cycles,Surly Bikes,undefined,0
+Qintex Limited,Mirage Resorts,shareholder_of,0
+Content & Co,YouTube,undefined,0
+Golden Rule Insurance Company,Republican Party,undefined,0
+Pacific Gas and Electric Company,Silver Spring Networks,client_of,0
+Hawk Films,Barry Lyndon,undefined,0
+Anchor,iOS,undefined,0
+Sycamore Partners,Kurt Geiger,undefined,0
+Rebag,Gucci,undefined,0
+Tablo,Channel Master,competitor_of,0
+Enerkem,Lehigh University,collaboration,0
+Cinematografía Española Americana S.A.,Doctor Zhivago,undefined,0
+Aker BioMarine AS,Aker ASA,subsidiary_of,0
+Atlantic Productions,Five,undefined,0
+XS Platinum Inc.,Tiffany & Co.,undefined,0
+CANEX,Subway,brand_of,0
+Sandstorm Gold Ltd.,TSX Venture Exchange,traded_on,0
+Hawker Siddeley Switchgear,FKI,acquired_by,1
+Cabin Fever Media,Dark Tranquillity,undefined,0
+GrayMatter Software,Qlik,collaboration,0
+"Rescale, Inc.",Microsoft Azure,collaboration,0
+Director's Kut Productions,Aai Kuthe Kay Karte!,undefined,0
+Roscoe's House of Chicken 'N Waffles,Rush Hour,undefined,0
+SomaLogic,Nasdaq,traded_on,0
+Spotlight Group Holdings,Peregrine Corporation,undefined,0
+All Power Labs,Burning Man,undefined,0
+Ford,Carbon Motors Corporation,undefined,0
+Colossal Pictures,MTV,undefined,0
+KS Oils Limited,Indian Idol,undefined,0
+Index Fund Advisors,Dimensional Fund Advisors,undefined,0
+AS Eesti Merelaevandus,Estline,undefined,0
+Otto Eberhardt Patronenfabrik,Mauser,undefined,0
+Rockwell Medical Inc.,Food and Drug Administration,regulated_by,0
+Blue-Tongue Films,I Love Sarah Jane,undefined,0
+National Picture Show,Lifetime,client_of,1
+Daisy Rock Girl Guitars,KMC Music,undefined,0
+Barracuda,Varsity,undefined,0
+Embega S. Coop.,Mondragon Corporation,subsidiary_of,0
+Shadow Projects,The Book of Pooh,product_or_service_of,0
+"Tradewest, Inc.",Victory Road,product_or_service_of,0
+Webfoot Technologies Inc.,Tonka,product_or_service_of,0
+Dolmen Press,The Táin,product_or_service_of,0
+Argyll Ferries Ltd,Transport Scotland,client_of,0
+Cashino,Gauselmann,subsidiary_of,1
+"IFM Therapeutics, LLC",Atlas,undefined,0
+Technicolor SA,Thomson Video Networks,subsidiary_of,0
+Manitoba Pool Elevators,Saskatchewan Wheat Pool,subsidiary_of,1
+Vons,Pavilions,brand_of,0
+Odyssey Software,American Video Entertainment,collaboration,0
+Spring,Grails,undefined,0
+West Cornwall Pasty Company,Ginsters,undefined,0
+Infinity Broadcasting Corporation,WFAN,acquired_by,1
+Asure Software,Cisco,undefined,0
+BT Mobile,BT Consumer,subsidiary_of,1
+Black Sheep Brewery,Scottish & Newcastle,acquired_by,1
+PM Entertainment,Chance,product_or_service_of,0
+Creation Entertainment,Twilight,product_or_service_of,0
+"Ku6 Media Co., Ltd.",Shanda Group,merged_with,0
+MPM Motors,MPM Erelis,product_or_service_of,0
+Moose Toys,Shopkins,product_or_service_of,0
+SLR Consulting Ltd,Livingbridge,undefined,0
+"Bright House Networks, LLC",News 13,product_or_service_of,0
+Triad Securities,FINRA,regulated_by,1
+Trader Media East,Trader Classified Media,subsidiary_of,1
+Spiegelworld,Empire,product_or_service_of,0
+Vandenbrink Design,Ferrari,collaboration,0
+"Jensen Hughes, Inc.",University of Waterloo,undefined,0
+VSS,Cambium Learning Group,shareholder_of,0
+GE MDS / MDS / Microwave Data Systems,GE Renewable Energy,subsidiary_of,1
+Philippine Racing Club,Manila Jockey Club,undefined,0
+YinzCam,Pittsburgh Steelers,client_of,0
+Magnetic Video Corporation,VHS,product_or_service_of,0
+Sikorsky Credit Union,SUM,undefined,0
+MaineToday Media,The Seattle Times,undefined,0
+Topshop,Dorothy Perkins,undefined,0
+Clutch,g2o,merged_with,0
+"Pet, Inc.",Eagle,brand_of,0
+"Advanced Battery Technologies, Inc",Lynx,undefined,0
+TN Mobile,Leo,undefined,0
+"Stockbridge Capital Group, LLC",Churchill Downs Incorporated,undefined,0
+Decker Brothers,Steinway & Sons,undefined,0
+Surfer,Academy Films,product_or_service_of,0
+RallyPoint,Harvard Business School,collaboration,0
+Systime Computers Ltd,Digital Equipment Corporation,client_of,0
+iSeeCars,Forbes,collaboration,0
+Control Data Corporation,NetSys International  LTD,client_of,1
+"BullsEye Telecom, Inc.",One Communications,collaboration,0
+Great West Media L.P.,Rocky Mountain Outlook,acquired_by,1
+Skellington Productions,MTV,client_of,0
+SystemSpecs,Infor,undefined,0
+New Republic Pictures,1917,product_or_service_of,1
+Baxi,Remeha,merged_with,0
+Madison Guaranty Savings and Loan Association,United States Congress,regulated_by,0
+Acme Packet,Huawei,competitor_of,0
+James Fisher and Sons plc,Furness Shipbuilding Company,acquired_by,1
+"Halcyon Monitoring Solutions, Inc.",Oracle,collaboration,0
+SuperValue,Woolworths New Zealand,subsidiary_of,0
+British Knights,Public Enemy,collaboration,0
+YES. Snowboards Inc.,SWS,undefined,0
+Aero Engine Controls,Goodrich Corporation,acquired_by,1
+Alliance & Leicester International Limited,Bradford & Bingley,undefined,0
+Strata,WRIF,undefined,0
+TV4 AB,Bonnier,subsidiary_of,0
+CoreFiling Ltd.,Unit4,undefined,0
+"Variety Wholesalers, Inc.",Roses,acquired_by,1
+"Dish México, S. de R. L. de C.V.",MVS Comunicaciones,subsidiary_of,0
+Baltimore Gas and Electric,Pepco Holdings,undefined,0
+Beefeater,Barbeques Galore,brand_of,0
+Wraith Games,iOS,product_or_service_of,0
+Audio Analytic,Centrica plc,collaboration,0
+Intel Capital,MovieBeam,shareholder_of,0
+"Locomotive Games, Inc.",EA Sports,undefined,0
+Hungry Bear Media,Sky Vision,collaboration,0
+Richter LLP,RSM International,undefined,0
+Amp'd Mobile Inc.,Speed,client_of,0
+John G. Kincaid & Company,British Shipbuilders,acquired_by,0
+Consolidated Media Holdings,Fox Sports News,shareholder_of,0
+Entertainment UK,Bertram Trading Limited,undefined,0
+"Solar Liberty Energy Systems, Inc.",Inc. Magazine,undefined,0
+"Friedman's, Inc.",Crescent,undefined,0
+Football Foundation,Playfinder,client_of,0
+Cosmic Voyage,Zacuto,collaboration,0
+Silvercorp Metals Inc.,TSX Venture Exchange,traded_on,0
+This is L. Inc.,Forbes,undefined,0
+SkilledUp,TechCrunch,undefined,0
+Storehouse plc,Richard Shops,undefined,0
+"Archipelago Films, Inc.",HBO,collaboration,0
+New Horizons Computer Learning Centers,Cisco,collaboration,0
+Blue Sky Network,Iridium,product_or_service_of,1
+"Saks, Inc.",Boston Store,acquired_by,1
+BASE Productions,Animal Planet,collaboration,0
+PathGuide Technologies,Infor,collaboration,0
+DarXabre,iOS,product_or_service_of,1
+Kinetic Group,OPTrust,shareholder_of,1
+Leland Corporation,WMS,acquired_by,0
+TCBY,Burger King,collaboration,0
+Keinath,GTR,product_or_service_of,0
+Gascoyne Trading Company,Wesfarmers,acquired_by,0
+Mount Stuart Media Ltd.,Five,collaboration,0
+Sapphire Films Ltd.,The Four Just Men,product_or_service_of,0
+Equiinet,Tina,product_or_service_of,0
+BAE Systems Southeast Shipyards,Atlantic Marine,acquired_by,1
+Khmer Mekong Films,Fear,product_or_service_of,0
+iPod,"Neuros Technology International, LLC",undefined,0
+Wirefly,InPhonic,product_or_service_of,1
+Dryworld Industries Inc.,Watford,collaboration,0
+Whalerock Industries,Yahoo!,undefined,0
+Cugini Randi,R5,product_or_service_of,0
+EcoSecurities,London Stock Exchange,traded_on,0
+Trimaran Capital Partners,Drexel Burnham Lambert,undefined,0
+ZeroTurnaround AS,Java,product_or_service_of,0
+Lionheart,Capitol Music Group Sweden,merged_with,0
+"Christian Era Broadcasting Service International, Inc",Eagle FM,undefined,0
+Britten-Norman,Snow Aeronautical,shareholder_of,0
+Galliard Homes,Carbuncle Cup,undefined,0
+Comcast Corporation,Broadnet Holdings BV,shareholder_of,0
+Australian Transport Network,Walkers,undefined,0
+"Stride Health, Inc.",New Enterprise Associates,shareholder_of,1
+Odisha Coal and Power Ltd,Odisha Power Generation Corporation Limited,undefined,0
+Megaphone,Slate,subsidiary_of,1
+Icemat,Basshunter,undefined,0
+Expekt.com Ltd,Wimbledon,product_or_service_of,0
+Ontario Student Trustees' Association,Ministry of Education,collaboration,0
+Vox Lumiere,Peter Pan,collaboration,0
+Phibro Animal Health Corporation,Nasdaq,traded_on,0
+Saffron Building Society,Building Societies Association,undefined,0
+Raycom Sports,Gray,undefined,0
+ECI Partners,Great Rail Journeys,shareholder_of,0
+Ecofibre Limited,Australian Securities Exchange,traded_on,0
+Switchover Media,Frisbee,product_or_service_of,0
+Kornhaber Brown,HGTV,client_of,1
+Pharmacia & Upjohn,Johnson & Johnson,acquired_by,1
+Deukom,Satelio,collaboration,0
+Contessa 32,Jeremy Rogers Limited,undefined,0
+MOFILM,Chevrolet,client_of,1
+"Support.com, Inc.",iOS,product_or_service_of,0
+Lazy 8 Studios,Irrational Games,collaboration,0
+Kitbag,Team GB,client_of,1
+BitSight,GGV Capital,shareholder_of,1
+Atlas Mara Limited,BancABC,shareholder_of,0
+Amazing Greys,Eyeworks,collaboration,0
+Gestigon,High-Tech Gründerfonds,shareholder_of,1
+Camera Effects Ltd,Supergirl,product_or_service_of,0
+Blitz Games Studios Limited,The Biggest Loser,product_or_service_of,0
+Portal Software,Deutsche Telekom,client_of,1
+Transmission Films,Carol and Brooklyn,product_or_service_of,0
+Simcyp Limited,University of Sheffield,undefined,0
+"Prensa Ibérica Media, S.L.",El Periódico de Catalunya,acquired_by,0
+Tau Films,The Yinyang Master,product_or_service_of,0
+Morris Angel & Son Limited,The Great Gatsby,product_or_service_of,0
+Atlas Media Corp.,Big Sexy,product_or_service_of,0
+Penn Medicine,Linguamatics,client_of,0
+Blue Omega,Damnation,undefined,0
+Cinédia,Estudantes,product_or_service_of,0
+Oscar,Flair Software Ltd.,product_or_service_of,1
+Varma Films,Patanga,product_or_service_of,0
+Chamberlain Group,Amazon,collaboration,0
+"IEEE GlobalSpec, Inc.",SolidWorks,collaboration,0
+"Burr, Egan, Deleage & Co.",American Superconductor,shareholder_of,0
+KRP Properties,Protecode,client_of,1
+"Frederator Networks, Inc.",YouTube,product_or_service_of,0
+Chestertons,Derry & Toms,undefined,0
+Streak,Google Chrome,product_or_service_of,0
+"King World Productions, Inc.",The Little Rascals Christmas Special,product_or_service_of,0
+Galaxy 19,GlobeCast World TV,product_or_service_of,1
+Convergent Technologies,Prime,client_of,1
+Montgomery Securities,Robertson Stephens,undefined,0
+Wireless Broadband Alliance,Wi-Fi Alliance,collaboration,0
+TACO Faurecia Design Center,BMW,product_or_service_of,0
+Great West Media L.P.,Black Press,collaboration,0
+Commercetools,REWE Group,acquired_by,0
+Transmission Films,Amour,product_or_service_of,0
+Railfreight Distribution,Speedlink,brand_of,1
+Stink Studios,Spotify,client_of,1
+Weizmann Institute of Science,BiondVax Pharmaceuticals Ltd.,collaboration,0
+Kinaxis Inc.,Toronto Stock Exchange,traded_on,0
+Fintage House,An Education,client_of,1
+Number 9 Films,Made in Dagenham,product_or_service_of,1
+Gaiam Vivendi Entertainment,New Video,merged_with,0
+Kalgoorlie Brewing and Ice Company,Lion Brewery,acquired_by,1
+NuoDB,Hummer Winblad Venture Partners,shareholder_of,1
+NCH Software,Google Toolbar,undefined,0
+Living Films,The Serpent,product_or_service_of,1
+Socrata,In-Q-Tel,shareholder_of,1
+Technical Systems Consultants,Pascal,undefined,0
+Superfly,Oxfam,collaboration,0
+Cope-Com,Amiga,product_or_service_of,1
+Fevertree Drinks plc,Lloyds Development Capital,shareholder_of,1
+Traction,Meebo,client_of,0
+"Surface Combustion, Inc.",Midland-Ross Corporation,acquired_by,0
+Kab Distribution Inc.,TSX Venture Exchange,traded_on,0
+Real3D,Sega,collaboration,0
+SIG plc,London Stock Exchange,traded_on,0
+Kapital Entertainment,William Morris Agency,undefined,0
+FRoSTA Aktiengesellschaft,Norma,client_of,1
+The Bell Fund,Bell Canada,subsidiary_of,0
+TekSavvy Solutions Inc.,Bell,collaboration,0
+Paradyne,DZS,subsidiary_of,0
+CamFind,"CloudSight, Inc.",product_or_service_of,1
+My Car Check,ABI,undefined,0
+Osborne & Little,Biba,collaboration,0
+JemJem,iPad,undefined,0
+Braithwaite and Co. Limited,Ministry of Railways,regulated_by,0
+InstallFree Inc,Windows Vista,undefined,0
+Peter Paul Candy Manufacturing Company,Associated Press,undefined,0
+Symphonic Distribution,Amazon,undefined,0
+FlexiLivre,Les Echos,undefined,0
+SQL Star International Limited,Linux,undefined,0
+Chicago Tribune,Vegas.com LLC,undefined,0
+Education Management Corporation,The Art Institutes,subsidiary_of,1
+YesWeHack,TousAntiCovid,collaboration,0
+Consolidated Media Associates,Soundcity Radio Network,subsidiary_of,1
+"Limbic Software, Inc.",Android,undefined,0
+Dream Office Real Estate Investment Trust,Dundee Corporation,undefined,0
+"Bruckmann, Rosser, Sherrill & Co.",Real Mex Restaurants,shareholder_of,0
+Treibacher Industrie AG,Wienerberger AG,undefined,0
+Meredith,Better Homes and Gardens Real Estate LLC,undefined,0
+Asciano Limited,GIC Private Limited,acquired_by,1
+Top Aces Inc.,Alpha,product_or_service_of,0
+Revelation Films,Simitar Entertainment,undefined,0
+Winc,OfficeMax,undefined,0
+Sun,tombola Ltd,collaboration,0
+Refund.me,iOS,product_or_service_of,0
+AuRico Gold Inc.,Northgate,acquired_by,1
+Middle East Bank Kenya Limited,Al-Futtaim Group,shareholder_of,1
+Pay 'n Save Corporation,Bi-Mart,subsidiary_of,1
+Chicago Growth Partners,CCMP Capital,undefined,0
+Wainwright Bank & Trust Company,National Organization for Women,collaboration,0
+Covisint,Ford,collaboration,0
+Animaze.. iNC,Akira,product_or_service_of,0
+Presto Food Markets Limited,Allied,subsidiary_of,0
+SentinelOne,"Scalyr, Inc.",acquired_by,1
+Zodiac Aerospace,OEMServices,undefined,0
+"Navajo Communications Company, Inc.",Citizens Telecommunications Company of the White Mountains,undefined,0
+Yahoo,Invite Media,collaboration,0
+The New York Times,Banco Latino,undefined,0
+Nnooo,PlayStation Vita,product_or_service_of,0
+Overseas Telecommunications Commission,Telstra Corporation Limited,undefined,0
+Clover Food Lab,Massachusetts Institute of Technology,undefined,0
+"Shepardson Microsystems, Inc.",HP Time-Shared BASIC,undefined,0
+CriticalBlue Ltd.,Linux,product_or_service_of,0
+Wesizwe Platinum,China Development Bank,client_of,0
+Future Generali India Insurance Company Limited,Future Group,collaboration,0
+"Techwood Music, Inc.",TBS,undefined,0
+Cerillion Plc,Columbus Communications,client_of,1
+South African Reserve Bank,VBS Mutual Bank,regulated_by,1
+"Vinzant Software, Inc.",Microsoft SQL Server,product_or_service_of,0
+Kaluga Queen,CITES,regulated_by,0
+"Vincent Brooks, Day & Son",Royal College of Art,undefined,0
+Mauritius Telecom,Facebook,client_of,1
+Spanfeller Media Group,Forbes,undefined,0
+Omega Protein Corporation,Clean Water Act,regulated_by,0
+Neptec Design Group,Maxar Technologies,acquired_by,0
+GenealogyBank,NewsBank,product_or_service_of,1
+Kinnevik AB,Global Fashion Group S.A.,shareholder_of,0
+Greater Cleveland Film Commission,Alex Cross,undefined,0
+"Oak View Group, LLC",UBS Arena,collaboration,0
+Mutual Alliance Trust Company,Chatham Phenix National Bank and Trust Company of New York,acquired_by,0
+Realmac Software,Ember,product_or_service_of,1
+Score a Score,Coca-Cola,collaboration,0
+Ströer SE & Co. KGaA,T-Online,acquired_by,1
+Solium,Morgan Stanley,client_of,1
+Antics Technologies,Antics3D,product_or_service_of,1
+"Bright Health Group, Inc.",Abrazo Community Health Network,collaboration,0
+Johannes Leonardo,Coca-Cola,collaboration,0
+AC Comics,Femforce,brand_of,1
+Iluka Resources Limited,Titanium Resources Group Ltd.,acquired_by,1
+University of Calgary,SemBioSys Genetics Inc.,shareholder_of,0
+Endemol Shine UK Limited,Big Brother,product_or_service_of,1
+HiSoft Systems,Pascal,product_or_service_of,1
+"Owler, Inc.",Meltwater,acquired_by,0
+BLME,Prudential Regulation Authority,regulated_by,0
+Zenith Carburetter Company Limited,Scripps-Booth,undefined,0
+"Tercica, Inc.",Food and Drug Administration,regulated_by,0
+Film Ventures International,Grizzly,product_or_service_of,1
+Yaaraa Productions,Fanaa,product_or_service_of,1
+Farmers Trading Company,Woolworths Supermarkets,collaboration,0
+Kornhaber Brown,YouTube,collaboration,0
+Day & Zimmerman,Forbes,undefined,0
+Zero Point Frontiers Corp.,RS-25,product_or_service_of,1
+Baxi,Electra,shareholder_of,1
+Harvard University,WHOOP,undefined,0
+Desnoes & Geddes Limited,Dragon,brand_of,1
+Messner Vetere Berger McNamee Schmetterer,Eurocom,acquired_by,0
+Unilever Nigeria Plc,Lever Brothers Nigeria Limited,undefined,0
+Schoenhofen Brewing Company,Green River,product_or_service_of,1
+Codeblack Films,"Mama, I Want to Sing!",product_or_service_of,1
+Oracle,FatWire Software,acquired_by,1
+Abbey Life Assurance Company Limited,Phoenix Group,acquired_by,0
+"SunCom Wireless Holdings, Inc.",T-Mobile,acquired_by,0
+Max's Group,Philippine Stock Exchange,traded_on,0
+Silvergate Media Holdings Limited,Mercury Filmworks,collaboration,0
+Kapital Entertainment,Terra Nova,product_or_service_of,1
+National Beef Packing Company LLC,Kansas City Steak Company,acquired_by,1
+Galloway's Society for the Blind,Lancashire County Council,collaboration,0
+Microsemi Corporation,Vitesse Semiconductor,acquired_by,1
+Heinz Wattie's Limited,Goodman Fielder,merged_with,0
+Premier FMCG,Manhattan,brand_of,1
+Master & Dynamic,Louis Vuitton,collaboration,0
+Alta Newspaper Group L.P.,The Record,acquired_by,1
+"Punch Entertainment, Inc.",Aeria Games,acquired_by,0
+Varigence,Biml,undefined,0
+Nexor,Internet Engineering Task Force,collaboration,0
+Stanbic Bank Uganda Limited,Grindlays Bank,undefined,0
+Novanet,WebRTC,product_or_service_of,1
+Sadis & Goldberg,FINRA,regulated_by,0
+Younicos,Cube,product_or_service_of,1
+Shine Group,Shine TV,subsidiary_of,1
+Coast Hotels,University of Alberta,undefined,0
+Atomic Antelope,Marvel,competitor_of,0
+Semifreddi's Bakery,Acme,competitor_of,0
+Alba Orbital,Rocket Lab,collaboration,0
+Financial Guaranty Insurance Company,CIVC Partners,acquired_by,0
+Masdar,WinWinD Ltd,shareholder_of,0
+Buckley Radio,WOR,acquired_by,1
+Global Electronic Trading Company,Knight Capital Group,acquired_by,1
+Powershares,Invesco,acquired_by,0
+Blue Cloud Ventures,Wrike,shareholder_of,0
+KANBAY,Morgan Stanley,client_of,1
+Synthite,Pepsi,client_of,1
+Chambers Corporation,KitchenAid,acquired_by,0
+Zyvex Marine,Zyvex Technologies,product_or_service_of,1
+Gilson Brothers Company,Marshalltown Company,acquired_by,0
+Upfront Ventures,Overture,shareholder_of,0
+Exco International,London Stock Exchange,traded_on,0
+Cadence13,Goop,collaboration,0
+System C Healthcare Ltd,Symphony Technology Group,acquired_by,0
+Marie Callender's,Castle Harlan,acquired_by,0
+Punch Pubs & Co,London Stock Exchange,traded_on,0
+"MINDBODY, Inc.",Bessemer Venture Partners,shareholder_of,1
+Filene's,The May Department Stores Company,acquired_by,0
+Crescent Communities,Sumitomo Forestry,acquired_by,0
+Yara Belle Plaine Inc,Cargill,collaboration,0
+Larami Corp.,Super Soaker,product_or_service_of,0
+Danske Bank,Oslo Stock Exchange,traded_on,0
+Yankee Doodle Dandy,Burger King,undefined,0
+Schneider Electric,"ETAP - Operation Technology, Inc.",shareholder_of,0
+Novero,Mercedes,client_of,1
+Amey plc,Servisair,acquired_by,1
+MonkeyPaw Games,Gaijinworks,collaboration,0
+Bowyers,Lloyds Development Capital,acquired_by,0
+June Pictures,Book Club,product_or_service_of,0
+IDS Scheer Consulting GmbH,Software AG,acquired_by,0
+Flame Ventures,Dracula,collaboration,0
+Upsala-Ekeby AB,Kosta Boda,acquired_by,1
+Seeker,ONE Campaign,collaboration,0
+masFlight,Bloomberg News,undefined,0
+Locus Computing Corporation,Merge,product_or_service_of,0
+Blue Heron Press,Spartacus,product_or_service_of,0
+Hammes Company,New York Giants,client_of,1
+Dalgety plc,London Stock Exchange,traded_on,0
+NTL Communications  Limited,RTÉ Television,undefined,0
+ShaMaran Petroleum Corp.,TSX Venture Exchange,traded_on,0
+Dynamic Diagrams,Ingenta,undefined,0
+Green Silk Road Fund,Sino-Singapore Tianjin Eco-city,shareholder_of,1
+Mainsoft,Internet Explorer,product_or_service_of,1
+"SpaceWorks Enterprises, Inc.","Terminal Velocity Aerospace, LLC (TVA)",subsidiary_of,1
+Overaa Construction,Lawrence Berkeley National Laboratory,client_of,0
+CBS Corporation,Titan,undefined,0
+TECO Chemicals AS,Oslo Stock Exchange,traded_on,0
+McGrath Estate Agents,Australian Securities Exchange,traded_on,0
+Bally Total Fitness Holding Corporation,Crunch Fitness,brand_of,1
+Keebler Company,Sunshine,brand_of,1
+Graftgold,Quazatron,product_or_service_of,1
+New Order,Hypertag,client_of,0
+SMS.ac Inc.,Chicago Tribune,undefined,0
+Banca di Credito Popolare,Banco di Napoli,undefined,0
+HiSoft Systems,Pascal,product_or_service_of,1
+Samtel Avionics,Hindustan Aeronautics Limited,collaboration,0
+FreshCo,Metro,competitor_of,0
+AS Graanul Invest,BillerudKorsnäs AB,undefined,0
+"Brake Masters, Inc.",Monroe,collaboration,0
+Glentel Inc.,Lucky Mobile,brand_of,1
+Wise Stores inc.,Zellers,competitor_of,0
+Baron Services,Lynx,product_or_service_of,1
+Lazydays RV Resort,Tampa Bay Buccaneers,undefined,0
+OLP Guitars,Music Man,collaboration,0
+Lightspeed Venture Partners,Boundary,shareholder_of,0
+John Crane,Smiths Group plc,subsidiary_of,0
+Rack Room Shoes,Off Broadway Shoe Warehouse,acquired_by,1
+Power Equipment Direct,Facebook,undefined,0
+"Electric Transit, Inc.",Wilderness,product_or_service_of,1
+Thomas-Morse Aircraft Corporation,T-2,product_or_service_of,1
+Revature,Thurgood Marshall College Fund,collaboration,0
+Prezzo,Strada,competitor_of,0
+Sunrise Productions,The Legend of the Sky Kingdom,product_or_service_of,1
+"Sunbow Entertainment, LLC",My Little Pony: The Movie,product_or_service_of,1
+Veveo,Nokia,client_of,0
+Sopheon,London Stock Exchange,traded_on,0
+Acacia Mining,Barrick Gold,acquired_by,0
+Rainbow Foods,Leeann Chin,brand_of,1
+Vega Telecom Inc.,San Miguel Corporation,undefined,0
+Mind's Eye Entertainment,Trimark Pictures,collaboration,0
+Boston Herald,Suburban World Newspapers,acquired_by,1
+Finablr,Travelex,brand_of,1
+Diamond Estates Wines & Spirits Ltd.,Seasons,brand_of,1
+Royal Bank Zimbabwe,Trust Banking Corporation,undefined,0
+Circle Studio,Xbox,product_or_service_of,0
+National Picture Show,A Deadly Adoption,product_or_service_of,0
+Tecdesk,BT,client_of,1
+Grand Metropolitan plc,Liggett Group,acquired_by,1
+CMB Monaco,CMG,subsidiary_of,1
+Cassa di Risparmio di Ascoli Piceno,Cariplo,subsidiary_of,0
+"Stoopid Buddy Stoodios, LLC.",Titan Maximum,product_or_service_of,0
+Shoman Productions,Khuda Kay Liye,product_or_service_of,0
+Golden Wonder,Walkers,competitor_of,0
+Essex,Bargain Hunt,brand_of,1
+Dryworld Industries Inc.,Goiás,undefined,0
+Atari Corporation,Hasbro Interactive,acquired_by,0
+Lucky Stores,SuperValu,undefined,0
+Paper Kite Productions,Making It,product_or_service_of,0
+FIELDS Stores Ltd.,Zellers,acquired_by,1
+Abbey Life Assurance Company Limited,Phoenix,acquired_by,0
+Advans Banque Congo S.A.,African Development Bank,shareholder_of,1
+Temperzone Limited,Hitachi,collaboration,0
+Betstar,Ladbrokes Coral,acquired_by,0
+"Hall Communications, Inc.",WNBH,subsidiary_of,1
+Monkeypaw Productions,Blumhouse Productions,collaboration,0
+"Lightspeed Trading, LLC","Lime Brokerage, LLC",merged_with,0
+INSEAD,MPOWER Financing,undefined,0
+Cape Town Film Studios,Black Sails,product_or_service_of,0
+All American Television,Pearson Television,acquired_by,0
+"Integrated Device Technology, Inc.",SigmaTel,acquired_by,1
+NIRA Dynamics AB,Frost & Sullivan,undefined,0
+Adobe Workfront,National Geographic,client_of,1
+Monstermob,London Stock Exchange,traded_on,0
+Gin Gliders Inc.,Oasis,product_or_service_of,1
+Creation Financial Services Limited and Creation Consumer Finance Limited T/A BNP Paribas Personal Finance,Selfridges,subsidiary_of,1
+Morgan Murphy Media,WTMJ,undefined,0
+Sopra Steria Group SA,Axway Software,subsidiary_of,1
+Illumio,Formation 8,undefined,1
+Shark Island Productions,Bully,product_or_service_of,1
+Kitbag,Nike,client_of,1
+SHUAA Capital psc,Dubai Financial Market,traded_on,0
+Cipher Prime,Splice,product_or_service_of,0
+Thomson-CSF,Thales Optronics,subsidiary_of,1
+TD Waterhouse Canada Inc.,Charles Schwab,competitor_of,0
+The Code,Unusuality Productions,product_or_service_of,0
+Bitso,Digital Currency Group,undefined,1
+Artemis Rising Foundation,The Hunting Ground,product_or_service_of,0
+"Ultimate Software Group, Inc.",Kronos Incorporated,merged_with,0
+Delhi Railway,Scinde Railway,merged_with,0
+Portman Building Society,Nationwide Building Society,merged_with,0
+"Engility Holdings, Inc.","TASC, Inc.",acquired_by,1
+RaiSat S.p.A.,RCS MediaGroup,shareholder_of,1
+RM plc,London Stock Exchange,traded_on,0
+Uganda Commercial Bank Ltd,Westmont,acquired_by,1
+National Electronic Distributors Association,Electronic Industries Alliance,merged_with,0
+Cokesbury,United Methodist Church,undefined,0
+Reply,Italian Stock Exchange,traded_on,0
+Rafaella,Levi Strauss & Co.,undefined,0
+aldiscon,Logica,acquired_by,0
+Accor,onefinestay,acquired_by,1
+Arizona Public Service,Salt River Project,competitor_of,0
+Higi LLC,Babylon Health,acquired_by,0
+Mavenir Systems,Airwide Solutions,acquired_by,1
+"Allied Artists International, Inc.",The Betsy,product_or_service_of,1
+Filmstaden,Odeon Kino,merged_with,0
+TruConnect,Sage Telecom Inc.,acquired_by,1
+Richelieu Hardware Limited,Toronto Stock Exchange,traded_on,0
+Skyfire,Trinity Ventures,undefined,0
+Techtron Pty Ltd,Varian Associates,merged_with,0
+Eidsiva Rederi ASA,Oslo Stock Exchange,traded_on,0
+seatwave,Atlas Venture,undefined,0
+"Sonat, Inc.",New York Stock Exchange,traded_on,0
+Casewise,Southern California Edison,client_of,1
+Whyte House Entertainment,The Heist,product_or_service_of,1
+"High Performance Technologies, Inc.",Dynamics Research Corporation,acquired_by,0
+CTERA,Cisco,collaboration,0
+LumenVox,Digium,collaboration,0
+Finsbury,WPP plc,subsidiary_of,0
+SLI Systems,Harry & David,client_of,1
+Ryman Ltd,Habitat,merged_with,0
+SBID,Higher Education Statistics Agency,undefined,0
+Varsity Pictures,Fred 2: Night of the Living Fred,product_or_service_of,1
+Gallus Holding AG,Heidelberger Druckmaschinen AG,subsidiary_of,0
+Bright Shining City Productions,Forgiveness,product_or_service_of,1
+"Innovative Interfaces, Inc",Ex Libris,acquired_by,0
+Livingbridge,TPG Capital,acquired_by,1
+Revera Inc.,Toronto Stock Exchange,traded_on,0
+Archer Capital,Rebel Sport Limited,acquired_by,1
+Blacks Outdoor Retail Ltd.,JD Sports Fashion plc,subsidiary_of,0
+"ThoughtSpot, Inc.",Khosla Ventures,undefined,0
+SeedInvest,Gust,collaboration,0
+Broadway Video,Man Seeking Woman,product_or_service_of,1
+Alfred,Bixby,acquired_by,1
+Dovetail,Accel,undefined,0
+GSO Capital Partners,"Donaldson, Lufkin & Jenrette",undefined,0
+Hawker de Havilland,Commonwealth Aircraft Corporation,acquired_by,1
+"XebiaLabs, Inc.",T-Mobile,client_of,1
+"Phase 4 Films, Inc.",The Legend of Sarila,product_or_service_of,1
+Radio Rentals,Thorn EMI,subsidiary_of,0
+Altiostar,Cisco,undefined,0
+Grenke AG,Frankfurt Stock Exchange,traded_on,0
+KNB EFX Group,Intruder,product_or_service_of,1
+Heinz Wattie's Limited,Oak,brand_of,1
+Irish North Western Railway,Ulster Railway,merged_with,0
+Berkeley SkyDeck,Sierra Ventures,undefined,0
+EnServe Group Limited,London Stock Exchange,traded_on,0
+iXL,Avenue A,merged_with,0
+"RBC Bank , N.A.",Alabama National BanCorporation,acquired_by,1
+My Broadcasting Corporation,CKOB,undefined,0
+Glenn L. Martin Company,American-Marietta Corporation,merged_with,0
+Media 8 Entertainment,Malofilm,undefined,0
+Heartland RVs,Mallard,brand_of,1
+Riverside Insights,Houghton Mifflin Harcourt,subsidiary_of,0
+"Addepar, Inc.",Orion,competitor_of,0
+Verizon,West Central Wireless,collaboration,0
+WingTips Airport Services,Servisair,competitor_of,0
+Metagaming Concepts,Ogre,product_or_service_of,1
+"Associated Production Music, LLC",The Big One,product_or_service_of,1
+Wolfe Video,The Wise Kids,product_or_service_of,1
+Teachers Life Insurance Society,Office of the Superintendent of Financial Institutions,regulated_by,0
+True North Productions,Channel 4,client_of,1
+Opportunity Network,Vietinbank,collaboration,0
+Leica Biosystems,Danaher Corporation,subsidiary_of,0
+Sky Studios,Punchdrunk International,collaboration,0
+Miracle Mart,Zellers,competitor_of,0
+Kabam Inc.,Alibaba,shareholder_of,1
+Cassa Padana,ChiantiBanca,competitor_of,0
+Blizzard,Tespa,collaboration,0
+Insignia Films,Seabiscuit,product_or_service_of,1
+PT CT Corpora,Jakarta Stock Exchange,traded_on,0
+DZS,Optelian Access Networks Corporation,acquired_by,1
+TestComplete,AutomatedQA Corp.,product_or_service_of,0
+Fluidmesh Networks,Pelco,collaboration,0
+Sphinx,LumenVox,product_or_service_of,0
+American Fletcher National Bank and Trust Company,INB Financial Corporation,competitor_of,0
+Brigham's Ice Cream,HP Hood,acquired_by,0
+Whip Media,HBO,client_of,1
+Publishing and Broadcasting Ltd,GTV-9,acquired_by,1
+Ciné-Asie Creatives,My Dear Enemy,undefined,0
+Rizzoli Bookstore,Columbia,undefined,0
+Avanti,Strada,product_or_service_of,1
+Butterfly,Duncan Toys,product_or_service_of,0
+Scranton Button Company,Cameo Records,merged_with,0
+GroupLogic,Acronis,subsidiary_of,0
+Meadville Corporation,Merit,brand_of,1
+Four Square,Friendly Grocer,brand_of,1
+Union Bank of Switzerland,Phillips & Drew,acquired_by,1
+Baseline Ventures,OMGPop,shareholder_of,0
+Language Studies International LSI,ESL,product_or_service_of,0
+CBS,Smoke Signal Broadcasting,undefined,0
+Nyfors Teknologi AB,Alcatel,collaboration,0
+Montgomery Elevator,KONE,acquired_by,0
+Greenstone TV,CJZ,acquired_by,0
+Perry Engineering,Ford,client_of,1
+Jet.com,Amazon,undefined,0
+Clerkenwell Films,E4,client_of,1
+Nervures,Altea,product_or_service_of,1
+Cynet,Norwest Venture Partners,shareholder_of,1
+Charter International plc,Colfax Corporation,acquired_by,0
+Yeti Cycles,Volant,acquired_by,0
+Rogers Cable Inc.,Mountain Cablevision,undefined,0
+Kramers,Square Books,undefined,0
+MidOcean Partners,Deutsche Bank,undefined,0
+Kordia,Orcon Limited,acquired_by,1
+CaptionMax,Department of Education,undefined,0
+Marmayogi,Pyramid Saimira,undefined,0
+"Uncooked, Inc.",MTV Video Music Awards,undefined,0
+Tynesoft Computer Software,First Star Software,undefined,0
+Christopher Ward  Limited,Bluebird,collaboration,0
+Pink Gorilla LLC,Atari 2600,undefined,0
+Klima,Verified Carbon Standard,undefined,0
+Headline Pictures,The Man in the High Castle,product_or_service_of,0
+"VidAmerica, Inc.",Some Like It Hot,product_or_service_of,0
+PlumChoice,Allstate,acquired_by,0
+Piperlime,Project Runway,collaboration,0
+Ascend Communications,Demon Internet,client_of,1
+Adams,TaylorMade,acquired_by,0
+VF Corporation,Altra Running,acquired_by,1
+Deutsche Bank,dbFX,product_or_service_of,0
+Cinédia,Limite,product_or_service_of,0
+Lamprell plc,London Stock Exchange,traded_on,0
+"AltJapan Co, Ltd.",Doraemon,product_or_service_of,0
+Morrison Management Specialists,Loyola University New Orleans,client_of,1
+Rajshri Media,Dosti,product_or_service_of,0
+Helog,Mercy Corps,collaboration,0
+SOSV,Carma,shareholder_of,0
+Venture Production Ltd,FTSE 250 Index,traded_on,0
+Unilog Content Solutions,Fisher Scientific,client_of,1
+Four Star Television,Desilu Productions,undefined,0
+Kendall and Sons Limited,Next,brand_of,1
+Farmers' Bank of Delaware,Girard Bank,acquired_by,0
+Global Gaming Factory X,The Pirate Bay,acquired_by,1
+Shopping.com,Amazon,competitor_of,0
+"Bowery Farming, Inc.",GGV Capital,shareholder_of,1
+EQAL,lonelygirl15,product_or_service_of,0
+Guardian Capital Group,Toronto Stock Exchange,traded_on,0
+Max Group,Hutchison Asia Telecom Group,collaboration,0
+Innovation Publishing,The Light Fantastic,product_or_service_of,0
+Red Digital Cinema,Leia Inc.,collaboration,0
+"Nuance Communications, Inc.","MacSpeech, Inc.",acquired_by,1
+Clark Boat Company,San Juan 24,product_or_service_of,0
+Central Point Software,Norton Utilities,competitor_of,0
+"Kavapoint, Inc.",iPhone,product_or_service_of,0
+"Berkery, Noyes & Co., LLC",McGraw-Hill,undefined,0
+Belgrave Trust,TerraPass,competitor_of,0
+Planview,Projectplace,acquired_by,1
+Fevertree Drinks plc,London Stock Exchange,traded_on,0
+CPL Aromas,London Stock Exchange,traded_on,0
+Paradigm Talent Agency,Genesis,acquired_by,1
+Farm Credit Canada,Parliament of Canada,regulated_by,0
+Société de Construction des Batignolles,SPIE,merged_with,0
+Dancing Diablo,Teenage Mutant Ninja Turtles,collaboration,0
+Ocean Productions,Central Park Media,client_of,1
+Floors-2-Go,London Stock Exchange,traded_on,0
+Shopa Docket,Woolworths Supermarkets,product_or_service_of,0
+EBSCO Information Services,ByWater Solutions LLC,collaboration,0
+In Films,Borderland,product_or_service_of,0
+C&S Wholesale Grocers,Met Foodmarkets,brand_of,0
+PonoPlayer,Ayre Acoustics,collaboration,0
+Fishman,Fender Musical Instruments Corporation,product_or_service_of,0
+Harbert Management Corporation,Falcone,competitor_of,0
+URI Purposely Built Vehicles PTY LTD,Toyota,undefined,0
+Topper,San Isidro,collaboration,0
+Granite Ventures,HyTrust,shareholder_of,0
+Central Michigan University,MediaSentry,undefined,0
+Merchants National Corporation,National City Corporation,acquired_by,0
+PlanetSpace,Canadian Arrow,undefined,0
+Twenga,Android,product_or_service_of,0
+"Zumobi, Inc",BlackBerry,undefined,0
+Spotlight Group Holdings,Big W,competitor_of,0
+"Gun Media Holdings, Inc.",PlayStation 4,product_or_service_of,0
+"Regent, L.P.",Pegasus Solutions,acquired_by,1
+Quayle Munro,Scottish Enterprise,undefined,0
+MIT Media Lab,"Groundhog Technologies, Inc.",undefined,0
+Central Studios,Haridas,undefined,0
+Guglielmo Caffè S.p.A.,Fiat 1100,undefined,0
+RAK Ceramics P.J.S.C,Abu Dhabi Securities Exchange,traded_on,0
+Banco di Sicilia,Banco di Napoli,undefined,0
+"SISCOG - Sistemas Cognitivos, SA",Norwegian State Railways,client_of,1
+"Where, Inc.",MapQuest,collaboration,0

@@ -154,4 +154,4 @@ def eval_relationship_extraction(agent_output_path, ground_truth_path):
 # eval_relationship_extraction('relationships.csv', 'test_refined_filtered_lite.csv')
 
 if __name__ == "__main__":
-    print(eval_relationship_extraction('relationships_core.csv', 'test_core.csv'))
+    print(eval_relationship_extraction('relationships_core_Sonnet4O3mini_no-batch.csv', 'test_core.csv'))

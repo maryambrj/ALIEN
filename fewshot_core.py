@@ -1,8 +1,8 @@
 from dotenv import load_dotenv
 from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
 from langchain_openai import ChatOpenAI
-# from langchain_google_genai import ChatGoogleGenerativeAI
-from langchain_anthropic import ChatAnthropic
+from langchain_google_genai import ChatGoogleGenerativeAI
+# from langchain_anthropic import ChatAnthropic
 # from langchain_core.output_parsers.pydantic import PydanticOutputParser
 # from langchain_google_vertexai import ChatVertexAI
 from langchain_core.messages import BaseMessage, AIMessage, HumanMessage
@@ -82,7 +82,7 @@ def chunk_list(lst, n_chunks):
         yield lst[start:end]
 #########################################################################################
 CSV_PATH = "test_core.csv"
-CHUNKS = 708  # Number of chunks; can make this a parameter as needed
+CHUNKS = 20  # Number of chunks; can make this a parameter as needed
 #########################################################################################
 
 # Remove header from input as the first thing
@@ -110,27 +110,6 @@ generate_prompt_template = [
     (
         "system",
         "Here are the entities, target entities, and corresponding story texts:\n\n"
-        "{entity_story_context}\n"
-    ),
-    MessagesPlaceholder(variable_name="messages"),
-]
-
-reflection_prompt_template = [
-    (
-        "system",
-        "You are an entity relationship extractor that finds relationship and invert_relation (i.e., 1 means from target entity to entity), given the entities, target entities, and the corresponding story text. "
-        "Generate critique and recommendations about the quality of extracted relationships. "
-        "The relations CANNOT be anything but one of these: 'undefined', 'product_or_service_of', 'shareholder_of', 'collaboration', 'subsidiary_of'," 
-        "'client_of', 'competitor_of', 'acquired_by', 'traded_on', 'regulated_by', 'brand_of', 'merged_with'."
-        "Make sure the columns are separated with a pipe '|' in the table and not comma ','."
-        "Count the number of rows in the original table and compare with the number of rows in the output table. If not the same, point out which rows the output table is missing to be added."
-        "Pay special attention to 'undefined' answers and review if there is truly no relation between entity, target entity, given the story text. "
-        "Keep your feedback short and concise. Do not provide feedback on correctly identified relationships."
-        "No more than one entity, target, and relationship and invert_relation per extraction per given story. Allow duplicates. Keep it concise."
-    ),
-    (
-        "system",
-        "Here is the context (table):\n\n"
         "{entity_story_context}\n"
     ),
     MessagesPlaceholder(variable_name="messages"),
@@ -164,12 +143,13 @@ class LLMTableOutput(BaseModel):
 #     timeout=None
 # )
 # generating_llm_raw = ChatGoogleGenerativeAI(model="gemini-2.5-pro-preview-05-06")
-generating_llm_raw = ChatAnthropic(model="claude-sonnet-4-20250514", temperature=0, max_tokens=60000)
+generating_llm_raw = ChatGoogleGenerativeAI(model="gemini-2.5-flash-preview-05-20")
+# generating_llm_raw = ChatAnthropic(model="claude-sonnet-4-20250514", temperature=0, max_tokens=60000)
 
 generating_llm = generating_llm_raw.with_structured_output(LLMTableOutput)
 
 # generating_llm = ChatOpenAI(model="o3-mini-2025-01-31")
-reflection_llm = ChatOpenAI(model="o3-mini-2025-01-31")
+# reflection_llm = ChatOpenAI(model="o3-mini-2025-01-31")
 # reflection_llm = ChatGoogleGenerativeAI(model="gemini-2.5-flash-preview-05-20")
 
 # Agent execution for each chunk
@@ -183,12 +163,12 @@ def run_agent_on_chunk(chunk_rows):
         entity_story_context=entity_story_context,
     )
 
-    reflection_prompt = ChatPromptTemplate.from_messages(reflection_prompt_template).partial(
-        entity_story_context=entity_story_context,
-    )
+    # reflection_prompt = ChatPromptTemplate.from_messages(reflection_prompt_template).partial(
+    #     entity_story_context=entity_story_context,
+    # )
     generate_chain = generate_prompt | generating_llm
-    reflect_chain = reflection_prompt | reflection_llm
-    REFLECT = "reflect"
+    # reflect_chain = reflection_prompt | reflection_llm
+    # REFLECT = "reflect"
     GENERATE = "generate"
 
 
@@ -199,25 +179,25 @@ def run_agent_on_chunk(chunk_rows):
         return [AIMessage(content=json.dumps(temp))]
         # return [AIMessage(content=[{"type": "text", "text": json.dumps(temp)}])]
 
-    def reflection_node(messages: Sequence[BaseMessage]) -> List[BaseMessage]:
-        res = reflect_chain.invoke({"messages": messages})
-        # return [HumanMessage(content=[{"type": "text", "text":res.content}])]
-        return [HumanMessage(content=[{"type": "text", "text": res.content}])]
+    # def reflection_node(messages: Sequence[BaseMessage]) -> List[BaseMessage]:
+    #     res = reflect_chain.invoke({"messages": messages})
+    #     # return [HumanMessage(content=[{"type": "text", "text":res.content}])]
+    #     return [HumanMessage(content=[{"type": "text", "text": res.content}])]
 
 
 
     builder = MessageGraph()
     builder.add_node(GENERATE, generation_node)
-    builder.add_node(REFLECT, reflection_node)
+    # builder.add_node(REFLECT, reflection_node)
     builder.set_entry_point(GENERATE)
 
-    def should_continue(state: List[BaseMessage]):
-        if len(state) > 3:
-            return END
-        return REFLECT
+    # def should_continue(state: List[BaseMessage]):
+    #     if len(state) > 3:
+    #         return END
+    #     return REFLECT
 
-    builder.add_conditional_edges(GENERATE, should_continue)
-    builder.add_edge(REFLECT, GENERATE)
+    # builder.add_conditional_edges(GENERATE, should_continue)
+    # builder.add_edge(REFLECT, GENERATE)
     graph = builder.compile()
     initial_messages = [
         HumanMessage(content=[{"type": "text", "text": "Please extract all relationships in the stories provided."}])
@@ -254,8 +234,8 @@ if __name__ == "__main__":
         # headers[2]: Relationship -> relation
 
     df = pd.DataFrame(all_data)
-    df.to_csv('relationships_core_Sonnet4O3mini_no-batch.csv', index=False)
+    df.to_csv('relationships_core_fewshot.csv', index=False)
 
     # At the END: add header for output CSV
 
-    print(f"Combined relationships table has been written to relationships_core.csv")
+    print(f"Combined relationships table has been written to relationships_core_fewshot.csv")

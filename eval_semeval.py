@@ -97,4 +97,4 @@ def eval_relationship_extraction(agent_output_path, ground_truth_path):
 # eval_relationship_extraction('relationships.csv', 'test_refined_filtered_lite.csv')
 
 if __name__ == "__main__":
-    print(eval_relationship_extraction('relationships_semeval.csv', 'test_semeval.csv'))
+    print(eval_relationship_extraction('./relationships_semeval_25Flash4o.csv', 'test_semeval.csv'))

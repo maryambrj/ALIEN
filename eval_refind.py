@@ -97,4 +97,4 @@ def eval_relationship_extraction(agent_output_path, ground_truth_path):
 # eval_relationship_extraction('relationships.csv', 'test_refined_filtered_lite.csv')
 
 if __name__ == "__main__":
-    print(eval_relationship_extraction('relationships.csv', 'test_refined_filtered_lite.csv'))
+    print(eval_relationship_extraction('./Final_Data_Amin/relationships_refind_25Flash4o.csv', 'test_refined_filtered.csv'))
