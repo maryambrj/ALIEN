@@ -77,7 +77,7 @@ def chunk_list(lst, n_chunks):
         end = (i + 1) * k + min(i + 1, m)
         yield lst[start:end]
 #########################################################################################
-CSV_PATH = "test_semeval.csv"
+CSV_PATH = "./datasets/semeval_2008_task8/test_semeval.csv"
 CHUNKS = 50  # Number of chunks; can make this a parameter as needed
 #########################################################################################
 
@@ -174,6 +174,8 @@ def run_agent_on_chunk(chunk_rows):
 
     from langchain_core.messages import AIMessage, HumanMessage
 
+    builder = MessageGraph()
+
     def generation_node(state: Sequence[BaseMessage]):
         max_retries = 3
         retry_count = 0
@@ -213,7 +215,6 @@ def run_agent_on_chunk(chunk_rows):
         res = reflect_chain.invoke({"messages": messages})
         return [HumanMessage(content=res.content)]
 
-    builder = MessageGraph()
     builder.add_node(GENERATE, generation_node)
     builder.add_node(REFLECT, reflection_node)
     builder.set_entry_point(GENERATE)
@@ -223,9 +224,13 @@ def run_agent_on_chunk(chunk_rows):
             return END
         return REFLECT
 
-    builder.add_conditional_edges(GENERATE, should_continue)
+    # This creates edges: GENERATE -> REFLECT (when should_continue returns REFLECT)
+    # and GENERATE -> END (when should_continue returns END)
+    builder.add_conditional_edges(GENERATE, should_continue, {REFLECT: REFLECT, END: END})
     builder.add_edge(REFLECT, GENERATE)
     graph = builder.compile()
+    print(graph.get_graph().draw_mermaid())
+    print(graph.get_graph().print_ascii())
     initial_messages = [
         HumanMessage(content="Please extract all relationships in the stories provided.")
     ]

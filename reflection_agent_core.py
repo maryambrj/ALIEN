@@ -1,19 +1,14 @@
 from dotenv import load_dotenv
 from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
 from langchain_openai import ChatOpenAI
-# from langchain_google_genai import ChatGoogleGenerativeAI
-from langchain_anthropic import ChatAnthropic
-# from langchain_core.output_parsers.pydantic import PydanticOutputParser
-# from langchain_google_vertexai import ChatVertexAI
+from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain_core.messages import BaseMessage, AIMessage, HumanMessage
 from langgraph.graph import END, MessageGraph
-# from langchain_deepseek import ChatDeepSeek
 from pydantic import BaseModel, Field
 from typing import List, Literal, Sequence
 import pandas as pd
 import json
 import csv
-# import math
 
 load_dotenv()
 
@@ -21,21 +16,13 @@ load_dotenv()
 
 
 def load_entity_story_rows_from_csv(csv_path: str):
-    """
-    Read CSV file where:
-      - The column with header 'e1_name' is treated as 'entity',
-      - The column with header 'e2_name' is treated as 'target entity',
-      - The column with header 'sentence' is treated as 'story text'.
-    Returns a tuple: (header, list of dicts for each (entity, target, story)).
-    """
 
     rows = []
     header = None
     with open(csv_path, newline='', encoding='utf-8') as csvfile:
         reader = csv.reader(csvfile)
-        header = next(reader, None)  # extract header as the first thing
+        header = next(reader, None)
 
-        # Find column indexes by header names
         if header is None:
             raise ValueError("CSV file is empty or missing header row.")
 
@@ -62,10 +49,8 @@ def load_entity_story_rows_from_csv(csv_path: str):
     return header, rows
 
 def make_context_table(entity_story_rows):
-    """Format the entity-target-story triplets as a table for LLm input."""
     table = "| Entity | Target Entity | Story Text |\n|---|---|---|\n"
     for row in entity_story_rows:
-        # Make story and entity text compact (truncate if necessary)
         e = row["entity"]
         t = row["target_entity"]
         s = row["story_text"].replace("\n", " ").strip()
@@ -74,18 +59,16 @@ def make_context_table(entity_story_rows):
     return table
 
 def chunk_list(lst, n_chunks):
-    """Yield successive n_chunks pieces from lst as evenly as possible."""
     k, m = divmod(len(lst), n_chunks)
     for i in range(n_chunks):
         start = i * k + min(i, m)
         end = (i + 1) * k + min(i + 1, m)
         yield lst[start:end]
 #########################################################################################
-CSV_PATH = "test_core.csv"
-CHUNKS = 708  # Number of chunks; can make this a parameter as needed
+CSV_PATH = "./datasets/core_data/test_core.csv"
+CHUNKS = 708
 #########################################################################################
 
-# Remove header from input as the first thing
 input_header, ENTITY_STORY_ROWS = load_entity_story_rows_from_csv(CSV_PATH)
 chunks = list(chunk_list(ENTITY_STORY_ROWS, CHUNKS))
 
@@ -149,30 +132,15 @@ class TableRow(BaseModel):
     )
 
 class LLMTableOutput(BaseModel):
-    headers: List[str]  # should be ["name", "age", "status"]
+    headers: List[str]
     rows: List[TableRow]
 
 
-# output_parser = PydanticOutputParser(pydantic_object=LLMTableOutput)
-
-# generating_llm_raw = ChatVertexAI(temperature = 0, model="gemini-2.5-pro-preview-05-06")
-# generating_llm_raw = ChatOpenAI(model="o3-mini-2025-01-31")
-# generating_llm_raw = ChatDeepSeek(
-#     model="deepseek-chat",
-#     temperature=0,
-#     max_tokens=None,
-#     timeout=None
-# )
-# generating_llm_raw = ChatGoogleGenerativeAI(model="gemini-2.5-pro-preview-05-06")
-generating_llm_raw = ChatAnthropic(model="claude-sonnet-4-20250514", temperature=0, max_tokens=60000)
+generating_llm_raw = ChatGoogleGenerativeAI(model="gemini-2.5-flash-preview-05-20", temperature=0)
 
 generating_llm = generating_llm_raw.with_structured_output(LLMTableOutput)
+reflection_llm = ChatOpenAI(model="gpt-4o")
 
-# generating_llm = ChatOpenAI(model="o3-mini-2025-01-31")
-reflection_llm = ChatOpenAI(model="o3-mini-2025-01-31")
-# reflection_llm = ChatGoogleGenerativeAI(model="gemini-2.5-flash-preview-05-20")
-
-# Agent execution for each chunk
 def run_agent_on_chunk(chunk_rows):
 
 
@@ -194,14 +162,11 @@ def run_agent_on_chunk(chunk_rows):
 
     def generation_node(state: Sequence[BaseMessage]):
         output = generate_chain.invoke({"messages": state})
-        # Ensure the output is always wrapped as a message (convert to readable string or format as needed)
         temp = [row.model_dump() for row in output.rows]
         return [AIMessage(content=json.dumps(temp))]
-        # return [AIMessage(content=[{"type": "text", "text": json.dumps(temp)}])]
 
     def reflection_node(messages: Sequence[BaseMessage]) -> List[BaseMessage]:
         res = reflect_chain.invoke({"messages": messages})
-        # return [HumanMessage(content=[{"type": "text", "text":res.content}])]
         return [HumanMessage(content=[{"type": "text", "text": res.content}])]
 
 
@@ -219,6 +184,8 @@ def run_agent_on_chunk(chunk_rows):
     builder.add_conditional_edges(GENERATE, should_continue)
     builder.add_edge(REFLECT, GENERATE)
     graph = builder.compile()
+    print(graph.get_graph().draw_mermaid())
+    print(graph.get_graph().print_ascii())
     initial_messages = [
         HumanMessage(content=[{"type": "text", "text": "Please extract all relationships in the stories provided."}])
     ]
@@ -226,36 +193,21 @@ def run_agent_on_chunk(chunk_rows):
     return response
 
 if __name__ == "__main__":
-    print("Hello LangGraph! Running chunked agent extraction...")
+    print("Running chunked agent extraction...")
 
     all_data = []
     all_rows = []
-    # Use your desired/fixed header order here
     csv_headers = ["e1_name", "e2_name", "relation", "invert_relation"]
     for ix, chunk in enumerate(chunks):
         print(f"Processing chunk {ix+1}/{CHUNKS} (rows {len(chunk)}) ...")
         response = run_agent_on_chunk(chunk)
         table_content = response[-1].content
-        # data = table_content  # This gives you a list of dicts
-
-        # json_string = data[0]['text']
-        # parsed_chunk_data = json.loads(json_string)
-        # all_data.extend(parsed_chunk_data)  # Now extending with parsed list of dicts
         data = json.loads(table_content)  # This gives you a list of dicts
         all_data.extend(data)
 
 
-        # Map the extracted row columns to fixed header order
-        # headers: [Entity, Target Entity, Relationship] (after column swap)
-        
-        # Column indices after swap:
-        # headers[0]: Entity -> e1_name
-        # headers[1]: Target Entity -> e2_name
-        # headers[2]: Relationship -> relation
-
     df = pd.DataFrame(all_data)
-    df.to_csv('relationships_core_Sonnet4O3mini_no-batch.csv', index=False)
+    df.to_csv('relationships_core.csv', index=False)
 
-    # At the END: add header for output CSV
 
     print(f"Combined relationships table has been written to relationships_core.csv")
