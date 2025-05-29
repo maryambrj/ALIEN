@@ -9,6 +9,8 @@ from typing import List, Literal, Sequence
 import pandas as pd
 import json
 import csv
+import time
+import sys
 
 load_dotenv()
 
@@ -66,7 +68,7 @@ def chunk_list(lst, n_chunks):
         yield lst[start:end]
 #########################################################################################
 CSV_PATH = "./datasets/core_data/test_core.csv"
-CHUNKS = 708
+CHUNKS = 100
 #########################################################################################
 
 input_header, ENTITY_STORY_ROWS = load_entity_story_rows_from_csv(CSV_PATH)
@@ -143,8 +145,6 @@ reflection_llm = ChatOpenAI(model="gpt-4o")
 
 def run_agent_on_chunk(chunk_rows):
 
-
-
     entity_story_context = make_context_table(chunk_rows)
 
     generate_prompt = ChatPromptTemplate.from_messages(generate_prompt_template).partial(
@@ -159,17 +159,61 @@ def run_agent_on_chunk(chunk_rows):
     REFLECT = "reflect"
     GENERATE = "generate"
 
-
     def generation_node(state: Sequence[BaseMessage]):
-        output = generate_chain.invoke({"messages": state})
-        temp = [row.model_dump() for row in output.rows]
-        return [AIMessage(content=json.dumps(temp))]
+        max_retries = 3
+        retry_count = 0
+        
+        while retry_count < max_retries:
+            try:
+                output = generate_chain.invoke({"messages": state})
+                
+                # Check if output is empty or invalid
+                if output is None or not hasattr(output, 'rows') or output.rows is None or len(output.rows) == 0:
+                    print(f"Warning: Generation node returned empty data, retrying... (attempt {retry_count + 1}/{max_retries})")
+                    retry_count += 1
+                    if retry_count < max_retries:
+                        time.sleep(2)
+                    continue
+                
+                # If we get here, output.rows exists and has data
+                temp = [row.model_dump() for row in output.rows]
+                return [AIMessage(content=json.dumps(temp))]
+                
+            except Exception as e:
+                print(f"Error in generation node: {e}, retrying... (attempt {retry_count + 1}/{max_retries})")
+                retry_count += 1
+                if retry_count < max_retries:
+                    time.sleep(2)
+        
+        # If we've exhausted all retries, raise an exception to fail the chunk
+        raise Exception("Generation node failed after 3 attempts - empty or invalid output")
 
     def reflection_node(messages: Sequence[BaseMessage]) -> List[BaseMessage]:
-        res = reflect_chain.invoke({"messages": messages})
-        return [HumanMessage(content=[{"type": "text", "text": res.content}])]
-
-
+        max_retries = 3
+        retry_count = 0
+        
+        while retry_count < max_retries:
+            try:
+                res = reflect_chain.invoke({"messages": messages})
+                
+                # Check if reflection output is empty
+                if res is None or not hasattr(res, 'content') or res.content is None or res.content.strip() == "":
+                    print(f"Warning: Reflection node returned empty data, retrying... (attempt {retry_count + 1}/{max_retries})")
+                    retry_count += 1
+                    if retry_count < max_retries:
+                        time.sleep(2)
+                    continue
+                
+                return [HumanMessage(content=[{"type": "text", "text": res.content}])]
+                
+            except Exception as e:
+                print(f"Error in reflection node: {e}, retrying... (attempt {retry_count + 1}/{max_retries})")
+                retry_count += 1
+                if retry_count < max_retries:
+                    time.sleep(2)
+        
+        # If we've exhausted all retries, raise an exception to fail the chunk
+        raise Exception("Reflection node failed after 3 attempts - empty or invalid output")
 
     builder = MessageGraph()
     builder.add_node(GENERATE, generation_node)
@@ -184,8 +228,8 @@ def run_agent_on_chunk(chunk_rows):
     builder.add_conditional_edges(GENERATE, should_continue)
     builder.add_edge(REFLECT, GENERATE)
     graph = builder.compile()
-    print(graph.get_graph().draw_mermaid())
-    print(graph.get_graph().print_ascii())
+    # print(graph.get_graph().draw_mermaid())
+    # print(graph.get_graph().print_ascii())
     initial_messages = [
         HumanMessage(content=[{"type": "text", "text": "Please extract all relationships in the stories provided."}])
     ]
@@ -198,16 +242,32 @@ if __name__ == "__main__":
     all_data = []
     all_rows = []
     csv_headers = ["e1_name", "e2_name", "relation", "invert_relation"]
+    
     for ix, chunk in enumerate(chunks):
         print(f"Processing chunk {ix+1}/{CHUNKS} (rows {len(chunk)}) ...")
-        response = run_agent_on_chunk(chunk)
-        table_content = response[-1].content
-        data = json.loads(table_content)  # This gives you a list of dicts
-        all_data.extend(data)
-
+        
+        try:
+            response = run_agent_on_chunk(chunk)
+            table_content = response[-1].content
+            
+            # Check if the final response is empty
+            if not table_content or table_content.strip() == "":
+                raise Exception("Empty response from chunk processing")
+            
+            data = json.loads(table_content)  # This gives you a list of dicts
+            
+            if not data or len(data) == 0:
+                raise Exception("Empty data array from chunk processing")
+            
+            all_data.extend(data)
+            print(f"Successfully processed chunk {ix+1}")
+            
+        except Exception as e:
+            print(f"CRITICAL ERROR: Chunk {ix+1} failed after all retries: {e}")
+            print("Stopping execution as chunk processing failed.")
+            sys.exit(1)
 
     df = pd.DataFrame(all_data)
-    df.to_csv('relationships_core.csv', index=False)
+    df.to_csv('relationships_core_25Flash4O.csv', index=False)
 
-
-    print(f"Combined relationships table has been written to relationships_core.csv")
+    print(f"Combined relationships table has been written to relationships_core_25Flash4O.csv")
