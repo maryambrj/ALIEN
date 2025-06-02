@@ -1,3 +1,130 @@
-## AgentX Proposal
+# Multi-Agent Architectures for Entity Relationship Classification
 
-This research proposes exploring active learning and multi-agent strategies to enhance performance in relation classification tasks. Traditional active learning approaches typically employ a single agent or heuristic for sample selection. However, this project seeks to innovate by implementing a multi-agent, multi-step sampling process where initial broad selection by one agent is further refined by subsequent agents. This hierarchical filtering could potentially lead to more effective and informative sample choices. Additionally, integrating multiple agents working simultaneously allows for consensus-based decisions, choosing samples based on majority voting, further improving the robustness and quality of selections. Furthermore, we aim to investigate interactive agent paradigms, where agents engage in structured debates to collaboratively determine relationship classifications. One agent proposes classifications, while another critically evaluates and challenges these proposals. Iterative interactions between proposing and critiquing agents may significantly enhance classification accuracy and model interpretability. Another compelling dimension of this project involves the use of specialized agents, each focusing exclusively on a specific relation type. Specialized agents could offer improved precision and understanding of nuanced relationships, leading to more accurate classifications than a general-purpose agent. To enhance model robustness, we will incorporate adversarial agents deliberately generating incorrect or misleading classifications. This adversarial component will compel other agents to develop strategies to detect and correct such intentionally erroneous information, thereby strengthening the overall reliability and resilience of the system. Finally, exploring few-shot learning guided by agent-driven sample selection represents an intriguing extension. In contrast to random selection, employing intelligent agents to select the few critical examples needed for few-shot learning might substantially enhance the efficiency and effectiveness of the model training process. 
+This repository contains all the code, data processing scripts, and evaluation tools for the paper:
+
+**“Comparative Analysis of AI Agent Architectures for Entity Relationship Classification”**
+
+We implement and evaluate three agent-based LLM architectures for relation classification:
+
+* **Generator-Reflector**
+* **Hierarchical Multi-Agent**
+* **Dynamic Example Generation (Relation Forger Agent)**
+
+---
+
+## 🔧 Project Structure
+
+```
+.
+├── data_processing_scripts         
+├── datasets                        
+│   ├── core_data
+│   ├── refind_data
+│   └── semeval_2010_task8
+│
+├── few_shot_baseline           
+│   ├── gemini                   
+│   └── gpt                      
+│
+├── generator_reflector_agent   
+├── hierarchical_multi_agent      
+└── relation_forger_agent      
+```
+
+---
+
+## 📖 Architectures
+
+### 1. Generator-Reflector Agent
+
+Implements a two-agent system:
+
+* **Generator**: Proposes initial relation predictions
+* **Reflector**: Provides critiques and refinements in an iterative loop
+
+Uses LangGraph to manage feedback-driven refinement over up to 3 dialogue turns.
+
+---
+
+### 2. Hierarchical Multi-Agent
+
+Implements:
+
+* An **Orchestrator agent** that routes inputs based on context
+* **Specialist agents** responsible for domain-specific relation subsets
+* A dynamic feedback loop between Orchestrator and Specialists to improve predictions
+
+---
+
+### 3. Relation Forger Agent (Dynamic Example Generator)
+
+This agent dynamically:
+
+* Generates positive & adversarial negative examples
+* Selects training-set examples using FAISS similarity search
+* Constructs a tailored few-shot prompt per test instance
+
+Then performs final classification using an enriched context.
+
+---
+
+## 📊 Datasets
+
+* **REFinD** – financial relation classification
+* **CORE** – scientific relation types from academic papers
+* **SemEval 2010 Task 8** – general-domain semantic relations
+
+Each dataset folder includes original and/or preprocessed `.csv` or `.json` files.
+
+---
+
+## 📈 Few-Shot Prompting Baselines
+
+Located in: `few_shot_baseline/` and contains:
+
+* Prompt templates for GPT (OpenAI) and Gemini (Google)
+* Scripts for 0-shot, 3-shot, and 5-shot experiments
+
+---
+
+## ✅ Requirements
+
+We recommend using a Python environment with the following packages:
+
+```bash
+langchain
+langgraph
+faiss-cpu
+openai
+google-generativeai
+pandas
+numpy
+tqdm
+```
+
+Optional: Hugging Face Transformers, Claude SDK (Anthropic), etc., depending on model backend integration.
+
+---
+
+## 📄 Citation
+
+If you use this codebase or ideas from our paper, please cite:
+
+```bibtex
+@inproceedings{berijanian2025comparative,
+  title={Comparative Analysis of AI Agent Architectures for Entity Relationship Classification},
+  author={Berijanian, Maryam and Singh, Kuldeep and Sehati, Amin},
+  booktitle={},
+  year={2025}
+}
+```
+
+---
+
+## 📬 Contact
+
+For questions, open an issue or contact:
+
+* Maryam Berijanian — [berijani@msu.edu](mailto:berijani@msu.edu)
+* Kuldeep Singh — [singhku2@msu.edu](mailto:singhku2@msu.edu)
+* Amin Sehati – [amin@aminsehati.com](mailto:amin@aminsehati.com)
