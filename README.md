@@ -2,7 +2,7 @@
 
 This repository contains all the code, data processing scripts, and evaluation tools for the paper:
 
-**“Comparative Analysis of AI Agent Architectures for Entity Relationship Classification”**
+**[“Comparative Analysis of AI Agent Architectures for Entity Relationship Classification”](https://doi.org/10.48550/arXiv.2506.02426)**
 
 We implement and evaluate three agent-based LLM architectures for relation classification:
 
@@ -113,8 +113,9 @@ If you use this codebase or ideas from our paper, please cite:
 ```bibtex
 @inproceedings{berijanian2025comparative,
   title={Comparative Analysis of AI Agent Architectures for Entity Relationship Classification},
-  author={Berijanian, Maryam and Singh, Kuldeep and Sehati, Amin},
-  booktitle={},
+  author={Maryam Berijanian and Kuldeep Singh and Amin Sehati},
+  booktitle={arXiv},
+  url={https://arxiv.org/abs/2506.02426}, 
   year={2025}
 }
 ```
